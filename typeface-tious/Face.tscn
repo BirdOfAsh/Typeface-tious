@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b1oensw17oc5x" path="res://Tape-system.gd" id="1_jxonu"]
 [ext_resource type="Texture2D" uid="uid://7xp3jlwl20t3" path="res://IMG_6781.jpg" id="2_1ndie"]
+[ext_resource type="PackedScene" uid="uid://dwah035yomhcs" path="res://tapeeeeeeeee.tscn" id="2_dmtdc"]
 
 [node name="Face" type="Node2D" unique_id=34774057]
 script = ExtResource("1_jxonu")
+tapeeeeeeeee_scene = ExtResource("2_dmtdc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821651268]
 position = Vector2(177, 106)
@@ -17,4 +19,12 @@ offset_right = 307.0
 offset_bottom = 255.0
 metadata/_edit_use_anchors_ = true
 
+[node name="FaceBox" type="Area2D" parent="." unique_id=690560337]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FaceBox" unique_id=1519194304]
+position = Vector2(0, 2)
+polygon = PackedVector2Array(127, 39, 221, 42, 226, 169, 124, 172)
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="input_event" from="FaceBox" to="." method="_on_face_box_input_event"]
+[connection signal="mouse_shape_entered" from="FaceBox" to="." method="_on_face_box_mouse_shape_entered"]
