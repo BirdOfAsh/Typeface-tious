@@ -1,8 +1,14 @@
 class_name TypingSystem extends Node2D
 
-@onready var text: RichTextLabel = $Text
+@onready var text_1: RichTextLabel = $Text
+@onready var text_2: RichTextLabel = $Text2
+@onready var text_3: RichTextLabel = $Text3
 
-var array_of_text : Array[String] = [
+@onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2, text_3]
+
+var current_text_line : RichTextLabel
+
+var array_of_text_options : Array[String] = [
 	"var variable : String = 'This is a variable'",
 	"func _ready() -> void:",
 	"print('My coworkers drive me crazy')"
@@ -13,7 +19,8 @@ var typed_text : String = ""
 
 
 func _ready() -> void:
-	update_text(listed_text)
+	reset_text_lines()
+	current_text_line = array_of_text_lines[0]
 	check_against_text()
 
 
@@ -41,6 +48,7 @@ func _input(event: InputEvent) -> void:
 	elif character == "Minus":
 		add_key_to_string("-")
 	
+	
 	elif character.contains("Shift+"):
 		character = character.replace("Shift+", "")
 		
@@ -64,7 +72,6 @@ func _input(event: InputEvent) -> void:
 
 	
 	check_against_text()
-	#add_underline_to_next_letter()
 
 
 func add_key_to_string(key : String) -> void:
@@ -89,25 +96,25 @@ func remove_last_letter() -> void:
 
 
 func check_against_text() -> void:
-	text.text = ""
+	current_text_line.text = ""
 	for i in range(typed_text.length()):
 		if listed_text[i] == typed_text[i]:
-			text.text += "[color=green]" + listed_text[i] + "[/color]"
+			current_text_line.text += "[color=green]" + listed_text[i] + "[/color]"
 		else:
 			if listed_text[i] == " ":
-				text.text += "[color=red]" + "_" + "[/color]"
+				current_text_line.text += "[color=red]" + "_" + "[/color]"
 			else:
-				text.text += "[color=red]" + listed_text[i] + "[/color]"
+				current_text_line.text += "[color=red]" + listed_text[i] + "[/color]"
 		if i + 1 > typed_text.length() and typed_text.length() + 1 <= listed_text.length():
-			text.text += "[u]" + listed_text[i + 1] + "[/u]"
+			current_text_line.text += "[u]" + listed_text[i + 1] + "[/u]"
 	
 	if !(typed_text.length() + 1 > listed_text.length()):
 		add_underline_to_next_letter()
-		text.text += listed_text.substr(typed_text.length() + 1, listed_text.length())
+		current_text_line.text += listed_text.substr(typed_text.length() + 1, listed_text.length())
 	
 	
 	if check_for_finished_text() == true:
-		reset_text_line()
+		move_to_next_line()
 
 
 func check_for_finished_text() -> bool:
@@ -117,17 +124,29 @@ func check_for_finished_text() -> bool:
 	return false
 
 
-func reset_text_line() -> void:
-	var rand_int : int = randi_range(0, array_of_text.size() - 1)
-	listed_text = array_of_text[rand_int]
+func reset_text_lines() -> void:
+	for line in array_of_text_lines:
+		var rand_int : int = randi_range(0, array_of_text_options.size() - 1)
+		listed_text = array_of_text_options[rand_int]
+		update_text(line, listed_text)
+
+
+func move_to_next_line() -> void:
+	if current_text_line == array_of_text_lines[-1]:
+		reset_text_lines()
+		current_text_line = array_of_text_lines[0]
+	else:
+		current_text_line = array_of_text_lines[array_of_text_lines.find(current_text_line) + 1]
+	
 	typed_text = ""
-	update_text(listed_text)
+	listed_text = current_text_line.text
+	check_against_text()
+	
 
-
-func update_text(updated_text : String) -> void:
-	text.text = updated_text
+func update_text(line : RichTextLabel, updated_text : String) -> void:
+	line.text = updated_text
 
 
 func add_underline_to_next_letter() -> void:
 	if typed_text.length() < listed_text.length():
-		text.text += "[u]"+listed_text[+typed_text.length()]+"[/u]"
+		current_text_line.text += "[u]"+listed_text[+typed_text.length()]+"[/u]"
