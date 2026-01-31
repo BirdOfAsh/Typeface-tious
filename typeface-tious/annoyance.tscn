@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://osl0ob1tgw2r"]
+
+[ext_resource type="Script" uid="uid://7kukr6dd7rne" path="res://annoyanceAppear.gd" id="1_g0rsx"]
+[ext_resource type="Texture2D" uid="uid://gccj7ch5hw4d" path="res://icon.svg" id="2_huwo8"]
+
+[node name="Annoyance" type="Node2D" unique_id=1614849043]
+script = ExtResource("1_g0rsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=178050783]
+position = Vector2(225, 355)
+scale = Vector2(1.2578125, 1.2031249)
+texture = ExtResource("2_huwo8")
