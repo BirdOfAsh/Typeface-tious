@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwr211x1j8mym"
-path="res://.godot/imported/lady_coworker_1.png-3ad009575210586d48582349c5b5ba6c.ctex"
+uid="uid://c55ptxcxetylt"
+path="res://.godot/imported/lady_coworker_1_mouth_2.png-f18213f3b5f3787e376c4316c2ffed06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lady_coworker_1.png"
-dest_files=["res://.godot/imported/lady_coworker_1.png-3ad009575210586d48582349c5b5ba6c.ctex"]
+source_file="res://assets/lady_coworker_1/lady_coworker_1_mouth_2.png"
+dest_files=["res://.godot/imported/lady_coworker_1_mouth_2.png-f18213f3b5f3787e376c4316c2ffed06.ctex"]
 
 [params]
 
