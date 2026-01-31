@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2jpunelwpg4b"]
+
+[ext_resource type="Script" uid="uid://b1oensw17oc5x" path="res://Tape-system.gd" id="1_jxonu"]
+
+[node name="Face" type="Node2D" unique_id=34774057]
+script = ExtResource("1_jxonu")
