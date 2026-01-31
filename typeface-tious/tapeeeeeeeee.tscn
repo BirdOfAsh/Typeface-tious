@@ -2,8 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dc4e0j57sd42n" path="res://B9z81czJt9g-png__700.jpg" id="1_1r8yd"]
 
-[node name="Tape" type="Node2D" unique_id=654909104]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mel8"]
+size = Vector2(123, 122)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1108117513]
-position = Vector2(0, 2)
+[node name="Tape" type="Area2D" unique_id=530948033]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1102122756]
+position = Vector2(51.5, 51)
+shape = SubResource("RectangleShape2D_4mel8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=723497399]
 texture = ExtResource("1_1r8yd")
