@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://c2jpunelwpg4b"]
 
 [ext_resource type="Script" uid="uid://b1oensw17oc5x" path="res://Tape-system.gd" id="1_jxonu"]
+[ext_resource type="Texture2D" uid="uid://7xp3jlwl20t3" path="res://IMG_6781.jpg" id="2_1ndie"]
 
 [node name="Face" type="Node2D" unique_id=34774057]
 script = ExtResource("1_jxonu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821651268]
+position = Vector2(177, 106)
+texture = ExtResource("2_1ndie")
+
+[node name="Button" type="Button" parent="." unique_id=1572023040]
+offset_left = 72.0
+offset_top = 205.0
+offset_right = 307.0
+offset_bottom = 255.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
