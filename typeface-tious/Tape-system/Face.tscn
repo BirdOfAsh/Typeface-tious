@@ -3,30 +3,42 @@
 [ext_resource type="Script" uid="uid://b1oensw17oc5x" path="res://Tape-system/Tape-system.gd" id="1_68567"]
 [ext_resource type="PackedScene" uid="uid://dwah035yomhcs" path="res://Tape-system/tapeeeeeeeee.tscn" id="2_m1jk8"]
 [ext_resource type="Texture2D" uid="uid://dygxtt5fbuvrg" path="res://assets/fresh_face.png" id="3_68567"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmtdc"]
-size = Vector2(101, 126.5)
+[ext_resource type="Texture2D" uid="uid://dnkwn1qvlh8r2" path="res://assets/desk_elements/tape/tape_dispenser.png" id="4_xb3h5"]
+[ext_resource type="Texture2D" uid="uid://dyjeii6kaeuk3" path="res://assets/desk_elements/tape/masking_tape.png" id="5_6th5r"]
 
 [node name="Face" type="Node2D" unique_id=34774057]
 script = ExtResource("1_68567")
 tapeeeeeeeee_scene = ExtResource("2_m1jk8")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821651268]
-position = Vector2(53, 553.00006)
-scale = Vector2(0.060174007, 0.08317971)
-texture = ExtResource("3_68567")
-
 [node name="TapeBox" type="Area2D" parent="." unique_id=690560337]
+position = Vector2(48, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TapeBox" unique_id=1519194304]
 position = Vector2(-121, 307)
-polygon = PackedVector2Array(127, 39, 221, 42, 226, 169, 124, 172)
+polygon = PackedVector2Array(569, 189, 417, 261, 217, 117, 217, -99, 369, -171, 553, -3)
+
+[node name="Tape" type="Sprite2D" parent="TapeBox" unique_id=252589285]
+z_index = -1
+position = Vector2(263.99994, 343.99994)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_xb3h5")
+
+[node name="TapeRoll" type="Sprite2D" parent="TapeBox" unique_id=135253710]
+z_index = -1
+position = Vector2(263.99994, 343.99994)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_6th5r")
 
 [node name="Facebox" type="Area2D" parent="." unique_id=78310580]
+position = Vector2(-64, -232)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Facebox" unique_id=779764791]
-position = Vector2(49, 554)
-shape = SubResource("RectangleShape2D_dmtdc")
+[node name="FaceSprite" type="Sprite2D" parent="Facebox" unique_id=1821651268]
+position = Vector2(208, 872)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_68567")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Facebox" unique_id=31760841]
+polygon = PackedVector2Array(200, 688, 288, 720, 336, 792, 328, 920, 296, 1008, 216, 1040, 112, 1016, 72, 920, 72, 808, 112, 728)
 
 [connection signal="input_event" from="TapeBox" to="." method="_on_face_box_input_event"]
 [connection signal="mouse_shape_entered" from="TapeBox" to="." method="_on_face_box_mouse_shape_entered"]

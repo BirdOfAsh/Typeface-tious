@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jpseb0he06b4" path="res://assets/desk_elements/office_computer.png" id="3_f7tth"]
 [ext_resource type="Texture2D" uid="uid://t1p3ictlgi1p" path="res://assets/desk_elements/office_desk.png" id="4_bx1e6"]
 [ext_resource type="Texture2D" uid="uid://cp2y3tt48d2lb" path="res://assets/desk_elements/office_background.png" id="6_33s4q"]
+[ext_resource type="PackedScene" uid="uid://c2jpunelwpg4b" path="res://Tape-system/Face.tscn" id="7_33s4q"]
 
 [node name="GameStateManager" type="Node" unique_id=2112768239]
 
@@ -38,3 +39,6 @@ z_index = -3
 position = Vector2(960.00006, 624)
 scale = Vector2(0.51, 0.51)
 texture = ExtResource("6_33s4q")
+
+[node name="Face" parent="." unique_id=34774057 instance=ExtResource("7_33s4q")]
+position = Vector2(-5, 272)

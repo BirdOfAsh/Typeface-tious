@@ -450,7 +450,7 @@ texture = ExtResource("49_1og72")
 position = Vector2(-784, 320)
 
 [node name="LeftHandMarker" type="Marker2D" parent="." unique_id=1841452658]
-position = Vector2(-1232, 320)
+position = Vector2(-912, 320)
 
 [node name="HandLeft" type="Sprite2D" parent="LeftHandMarker" unique_id=1389923387]
 position = Vector2(-96, 624)
@@ -458,7 +458,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("64_m7hrt")
 
 [node name="RightHandMarker" type="Marker2D" parent="." unique_id=942334898]
-position = Vector2(1184, 320)
+position = Vector2(744, 320)
 
 [node name="Sprite2D" type="Sprite2D" parent="RightHandMarker" unique_id=1485125281]
 position = Vector2(112, 624)

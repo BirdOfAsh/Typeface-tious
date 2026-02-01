@@ -88,6 +88,7 @@ func add_key_to_string(key : String) -> void:
 		return
 	
 	typed_text = (typed_text + key.to_lower())
+	check_for_incorrect_letter()
 
 
 func add_capital_letter_to_string(key : String) -> void:
@@ -95,6 +96,11 @@ func add_capital_letter_to_string(key : String) -> void:
 		return
 	
 	typed_text = typed_text + key
+	check_for_incorrect_letter()
+
+func check_for_incorrect_letter() -> void:
+	if typed_text[-1] != listed_text[typed_text.length() - 1]:
+		SignalBus.missed_key.emit()
 
 
 func remove_last_letter() -> void:
@@ -114,7 +120,7 @@ func check_against_text() -> void:
 				current_text_line.text += "[color=red]" + "_" + "[/color]"
 			else:
 				current_text_line.text += "[color=red]" + listed_text[i] + "[/color]"
-				
+			
 		if i + 1 > typed_text.length() and typed_text.length() + 1 <= listed_text.length():
 			current_text_line.text += "[u]" + listed_text[i + 1] + "[/u]"
 	

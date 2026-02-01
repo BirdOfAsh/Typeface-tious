@@ -4,13 +4,12 @@ signal Dead
 @export var tapeeeeeeeee_scene : PackedScene
 
 
-const LIGHT_DAMAGE_MASK = preload("uid://bs2y6likpspor")
-const MID_DAMAGE_MASK = preload("uid://bv5fyagb28o14")
+const LIGHT_DAMAGE_MASK = preload("res://assets/light_damage/light_damage_mask.png")
+const MID_DAMAGE_MASK = preload("res://assets/mid_damage/mid_damage_mask.png")
 
 const FRESH_FACE = preload("uid://dygxtt5fbuvrg")
 
-
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var face_sprite: Sprite2D = $Facebox/FaceSprite
 @onready var tape_box: Area2D = $TapeBox
 var dragging := false 
 var tape:  Area2D
@@ -19,8 +18,11 @@ var tape_over_target = false
 
 
 
+func _ready() -> void:
+	SignalBus.missed_key.connect(Damage)
 
-func _process(delta):
+
+func _process(_delta):
 	if tape and dragging:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			tape.global_position = get_global_mouse_position()
@@ -45,23 +47,23 @@ var StateNum : int = 3
 func ChangeStates():
 	if StateNum !=0 and StateNum <= 3:
 		if StateNum == 1:
-			sprite_2d.texture = MID_DAMAGE_MASK
+			face_sprite.texture = MID_DAMAGE_MASK
 		elif StateNum == 2:
-			sprite_2d.texture = LIGHT_DAMAGE_MASK
+			face_sprite.texture = LIGHT_DAMAGE_MASK
 		elif StateNum == 3:
-			sprite_2d.texture = FRESH_FACE
+			face_sprite.texture = FRESH_FACE
 		
 
 	
 func Damage():
-	StateNum = StateNum - 1
+	StateNum = clampi(StateNum - 1, 0 , 3)
 	ChangeStates()
 	
 func Heal():
-	StateNum = StateNum + 1
+	StateNum = clampi(StateNum + 1, 0 , 3)
 	ChangeStates() 
 		
-func _on_face_box_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_face_box_input_event(_viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
