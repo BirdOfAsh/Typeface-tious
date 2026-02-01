@@ -105,6 +105,7 @@ func check_against_text() -> void:
 				current_text_line.text += "[color=red]" + "_" + "[/color]"
 			else:
 				current_text_line.text += "[color=red]" + listed_text[i] + "[/color]"
+				
 		if i + 1 > typed_text.length() and typed_text.length() + 1 <= listed_text.length():
 			current_text_line.text += "[u]" + listed_text[i + 1] + "[/u]"
 	
