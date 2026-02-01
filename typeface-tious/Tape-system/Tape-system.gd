@@ -4,9 +4,11 @@ signal Dead
 @export var tapeeeeeeeee_scene : PackedScene
 
 
-const ICON = preload("uid://gccj7ch5hw4d")
-const Pwhizz = preload("uid://7xp3jlwl20t3")
-const Pwhizz2 = preload("uid://bt4py1a77veni")
+const LIGHT_DAMAGE_MASK = preload("uid://bs2y6likpspor")
+const MID_DAMAGE_MASK = preload("uid://bv5fyagb28o14")
+
+const FRESH_FACE = preload("uid://dygxtt5fbuvrg")
+
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var tape_box: Area2D = $TapeBox
@@ -37,17 +39,17 @@ func _on_button_pressed():
 	Heal()
 	
 
-var StateNum : int = 1
+var StateNum : int = 3
 
 
 func ChangeStates():
 	if StateNum !=0 and StateNum <= 3:
 		if StateNum == 1:
-			sprite_2d.texture = ICON
+			sprite_2d.texture = MID_DAMAGE_MASK
 		elif StateNum == 2:
-			sprite_2d.texture = Pwhizz
+			sprite_2d.texture = LIGHT_DAMAGE_MASK
 		elif StateNum == 3:
-			sprite_2d.texture = Pwhizz2
+			sprite_2d.texture = FRESH_FACE
 		
 
 	
