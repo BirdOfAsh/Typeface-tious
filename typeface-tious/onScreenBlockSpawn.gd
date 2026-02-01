@@ -15,12 +15,10 @@ var coordinatesOnScreen : Vector2
 var marker : Marker2D
 var sprite : Sprite2D
 var textBubble : Sprite2D
-var lifeTimer : float
 
 func _physics_process(_delta: float) -> void:
 	
 	if onScreen == true:
-		lifeTimer = 9.0
 		sprite.position = sprite.position.move_toward(coordinatesOnScreen, speed)
 	else:
 		sprite.position = sprite.position.move_toward(coordinatesOffScreen, speed)
