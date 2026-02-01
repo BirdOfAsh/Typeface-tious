@@ -108,7 +108,7 @@ func _on_face_box_input_event(_viewport: Node, event: InputEvent, shape_idx: int
 func _on_facebox_area_entered(area: Area2D) -> void:
 	if area == tape:
 		tape_over_target = true 
-		print ("im taped up")
+		print ("i'm taped up")
 	
 func _on_facebox_area_exited(area: Area2D) -> void:
 	if area == tape:      # Check if it’s the tape exiting
