@@ -63,6 +63,8 @@
 [ext_resource type="Texture2D" uid="uid://bxatbh5tmrlkj" path="res://assets/desk_elements/keyboard/first_row/key_dash.png" id="47_fu1ya"]
 [ext_resource type="Texture2D" uid="uid://dgkjq7c8teigm" path="res://assets/desk_elements/keyboard/first_row/key_equal.png" id="48_aht27"]
 [ext_resource type="Texture2D" uid="uid://i3usow7wt5ja" path="res://assets/desk_elements/keyboard/first_row/key_sqiggle.png" id="49_1og72"]
+[ext_resource type="Texture2D" uid="uid://bnkr36sh57mbd" path="res://assets/left_hand.png" id="64_m7hrt"]
+[ext_resource type="Texture2D" uid="uid://bwfb5k13rlskw" path="res://assets/right_hand.png" id="65_schlw"]
 
 [node name="Keyboard" type="Node2D" unique_id=494832227]
 scale = Vector2(0.5, 0.5)
@@ -447,9 +449,26 @@ texture = ExtResource("49_1og72")
 [node name="Marker2D" type="Marker2D" parent="1stRowKeys/QuoteLeft" unique_id=1504740911]
 position = Vector2(-784, 320)
 
-[node name="HandLeft" type="Sprite2D" parent="." unique_id=1389923387]
+[node name="LeftHandMarker" type="Marker2D" parent="." unique_id=1841452658]
+position = Vector2(-1232, 320)
 
-[node name="Timer" type="Timer" parent="." unique_id=770118278]
+[node name="HandLeft" type="Sprite2D" parent="LeftHandMarker" unique_id=1389923387]
+position = Vector2(-96, 624)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("64_m7hrt")
+
+[node name="RightHandMarker" type="Marker2D" parent="." unique_id=942334898]
+position = Vector2(1184, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightHandMarker" unique_id=1485125281]
+position = Vector2(112, 624)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("65_schlw")
+
+[node name="LeftHandTimer" type="Timer" parent="." unique_id=770118278]
 wait_time = 0.5
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="RightHandTimer" type="Timer" parent="." unique_id=128874039]
+
+[connection signal="timeout" from="LeftHandTimer" to="." method="_on_left_hand_timer_timeout"]
+[connection signal="timeout" from="RightHandTimer" to="." method="_on_right_hand_timer_timeout"]
