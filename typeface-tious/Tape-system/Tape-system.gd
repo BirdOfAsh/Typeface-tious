@@ -3,7 +3,6 @@ signal Dead
 
 @export var tapeeeeeeeee_scene : PackedScene
 
-
 const LIGHT_DAMAGE_MASK = preload("res://assets/light_damage/light_damage_mask.png")
 const MID_DAMAGE_MASK = preload("res://assets/mid_damage/mid_damage_mask.png")
 
@@ -94,6 +93,7 @@ func _on_face_box_input_event(_viewport: Node, event: InputEvent, shape_idx: int
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				$AudioStreamPlayer.play()
 				tape = tapeeeeeeeee_scene.instantiate()
 				get_tree().current_scene.add_child(tape)
 				
