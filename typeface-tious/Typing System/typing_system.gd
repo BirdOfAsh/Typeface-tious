@@ -69,8 +69,8 @@ func _input(event: InputEvent) -> void:
 				add_capital_letter_to_string(character)
 			_:
 				add_key_to_string("?")
-
 	
+	SignalBus.key_pressed.emit(character)
 	check_against_text()
 
 
