@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c2jpunelwpg4b"]
+
+[ext_resource type="Script" uid="uid://b1oensw17oc5x" path="res://Tape-system/Tape-system.gd" id="1_68567"]
+[ext_resource type="PackedScene" uid="uid://dwah035yomhcs" path="res://Tape-system/tapeeeeeeeee.tscn" id="2_m1jk8"]
+[ext_resource type="Texture2D" uid="uid://dygxtt5fbuvrg" path="res://assets/fresh_face.png" id="3_68567"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmtdc"]
+size = Vector2(101, 126.5)
+
+[node name="Face" type="Node2D" unique_id=34774057]
+script = ExtResource("1_68567")
+tapeeeeeeeee_scene = ExtResource("2_m1jk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821651268]
+position = Vector2(53, 553.00006)
+scale = Vector2(0.060174007, 0.08317971)
+texture = ExtResource("3_68567")
+
+[node name="TapeBox" type="Area2D" parent="." unique_id=690560337]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TapeBox" unique_id=1519194304]
+position = Vector2(-121, 307)
+polygon = PackedVector2Array(127, 39, 221, 42, 226, 169, 124, 172)
+
+[node name="Facebox" type="Area2D" parent="." unique_id=78310580]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Facebox" unique_id=779764791]
+position = Vector2(49, 554)
+shape = SubResource("RectangleShape2D_dmtdc")
+
+[connection signal="input_event" from="TapeBox" to="." method="_on_face_box_input_event"]
+[connection signal="mouse_shape_entered" from="TapeBox" to="." method="_on_face_box_mouse_shape_entered"]
+[connection signal="area_entered" from="Facebox" to="." method="_on_facebox_area_entered"]
+[connection signal="area_exited" from="Facebox" to="." method="_on_facebox_area_exited"]
