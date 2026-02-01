@@ -5,10 +5,43 @@
 [ext_resource type="Texture2D" uid="uid://dygxtt5fbuvrg" path="res://assets/fresh_face.png" id="3_68567"]
 [ext_resource type="Texture2D" uid="uid://dnkwn1qvlh8r2" path="res://assets/desk_elements/tape/tape_dispenser.png" id="4_xb3h5"]
 [ext_resource type="Texture2D" uid="uid://dyjeii6kaeuk3" path="res://assets/desk_elements/tape/masking_tape.png" id="5_6th5r"]
+[ext_resource type="Texture2D" uid="uid://umvxo4c6fyyh" path="res://assets/mid_damage/mid_tape_1.png" id="4_m1jk8"]
+[ext_resource type="Texture2D" uid="uid://umopll7jkm3c" path="res://assets/mid_damage/mid_tape_2.png" id="5_ycvve"]
+[ext_resource type="Texture2D" uid="uid://bj2qnfadq31i6" path="res://assets/mid_damage/mid_tape_3.png" id="6_h4uee"]
+[ext_resource type="Texture2D" uid="uid://dxqewknmfbqen" path="res://assets/light_damage/light_tape_1.png" id="7_v6ufl"]
+[ext_resource type="Texture2D" uid="uid://dgicnmuelfpa" path="res://assets/light_damage/light_tape_2.png" id="8_bwqe8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmtdc"]
+size = Vector2(101, 126.5)
 
 [node name="Face" type="Node2D" unique_id=34774057]
 script = ExtResource("1_68567")
 tapeeeeeeeee_scene = ExtResource("2_m1jk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821651268]
+position = Vector2(53, 553.00006)
+scale = Vector2(0.060174007, 0.08317971)
+texture = ExtResource("3_68567")
+
+[node name="Mid_Tape_1" type="Sprite2D" parent="Sprite2D" unique_id=1230739568]
+visible = false
+texture = ExtResource("4_m1jk8")
+
+[node name="Mid_Tape_2" type="Sprite2D" parent="Sprite2D" unique_id=1109418189]
+visible = false
+texture = ExtResource("5_ycvve")
+
+[node name="Mid_Tape_3" type="Sprite2D" parent="Sprite2D" unique_id=1739860817]
+visible = false
+texture = ExtResource("6_h4uee")
+
+[node name="Light_Tape_1" type="Sprite2D" parent="Sprite2D" unique_id=645880107]
+visible = false
+texture = ExtResource("7_v6ufl")
+
+[node name="Light_Tape_2" type="Sprite2D" parent="Sprite2D" unique_id=2056715450]
+visible = false
+texture = ExtResource("8_bwqe8")
 
 [node name="TapeBox" type="Area2D" parent="." unique_id=690560337]
 position = Vector2(48, 0)
@@ -40,7 +73,14 @@ texture = ExtResource("3_68567")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Facebox" unique_id=31760841]
 polygon = PackedVector2Array(200, 688, 288, 720, 336, 792, 328, 920, 296, 1008, 216, 1040, 112, 1016, 72, 920, 72, 808, 112, 728)
 
+[node name="Button" type="Button" parent="." unique_id=118653349]
+offset_left = 172.0
+offset_top = 452.0
+offset_right = 297.0
+offset_bottom = 499.0
+
 [connection signal="input_event" from="TapeBox" to="." method="_on_face_box_input_event"]
 [connection signal="mouse_shape_entered" from="TapeBox" to="." method="_on_face_box_mouse_shape_entered"]
 [connection signal="area_entered" from="Facebox" to="." method="_on_facebox_area_entered"]
 [connection signal="area_exited" from="Facebox" to="." method="_on_facebox_area_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

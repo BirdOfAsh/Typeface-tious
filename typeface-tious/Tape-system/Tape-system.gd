@@ -8,13 +8,22 @@ const LIGHT_DAMAGE_MASK = preload("res://assets/light_damage/light_damage_mask.p
 const MID_DAMAGE_MASK = preload("res://assets/mid_damage/mid_damage_mask.png")
 
 const FRESH_FACE = preload("uid://dygxtt5fbuvrg")
+const MID_TAPE_1 = preload("uid://umvxo4c6fyyh")
+const MID_TAPE_3 = preload("uid://bj2qnfadq31i6")
 
 @onready var face_sprite: Sprite2D = $Facebox/FaceSprite
+@onready var mid_tape_2: Sprite2D = $Sprite2D/Mid_Tape_2
+@onready var mid_tape_3: Sprite2D = $Sprite2D/Mid_Tape_3
+@onready var light_tape_1: Sprite2D = $Sprite2D/Light_Tape_1
+@onready var light_tape_2: Sprite2D = $Sprite2D/Light_Tape_2
+@onready var mid_tape_1: Sprite2D = $Sprite2D/Mid_Tape_1
+@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var tape_box: Area2D = $TapeBox
+@onready var face: Area2D = $Facebox
+
 var dragging := false 
 var tape:  Area2D
 var tape_over_target = false 
-@onready var face: Area2D = $Facebox
 
 
 
@@ -36,22 +45,41 @@ func _process(_delta):
 				tape.queue_free()
 				tape = null
 				tape_over_target = false
+	if StateNum == 4:
+		StateNum = 3
+	elif StateNum == 0:
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_button_pressed():
-	Heal()
+	Damage()
 	
 
 var StateNum : int = 3
 
 
 func ChangeStates():
-	if StateNum !=0 and StateNum <= 3:
+	if StateNum !=0 and StateNum < 4:
 		if StateNum == 1:
-			face_sprite.texture = MID_DAMAGE_MASK
+			light_tape_1.show()
+			light_tape_2.show()
+			mid_tape_1.show()
+			mid_tape_2.show()
+			mid_tape_3.show()
+			sprite_2d.texture = MID_DAMAGE_MASK
 		elif StateNum == 2:
-			face_sprite.texture = LIGHT_DAMAGE_MASK
+			light_tape_1.show()
+			light_tape_2.show()
+			mid_tape_1.hide()
+			mid_tape_2.hide()
+			mid_tape_3.hide()
+			sprite_2d.texture = LIGHT_DAMAGE_MASK
 		elif StateNum == 3:
-			face_sprite.texture = FRESH_FACE
+			mid_tape_1.hide()
+			mid_tape_2.hide()
+			mid_tape_3.hide()
+			light_tape_1.hide()
+			light_tape_2.hide()
+			sprite_2d.texture = FRESH_FACE
 		
 
 	
