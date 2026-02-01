@@ -12,14 +12,13 @@ const MID_TAPE_1 = preload("uid://umvxo4c6fyyh")
 const MID_TAPE_3 = preload("uid://bj2qnfadq31i6")
 
 @onready var face_sprite: Sprite2D = $Facebox/FaceSprite
-@onready var mid_tape_2: Sprite2D = $Sprite2D/Mid_Tape_2
-@onready var mid_tape_3: Sprite2D = $Sprite2D/Mid_Tape_3
-@onready var light_tape_1: Sprite2D = $Sprite2D/Light_Tape_1
-@onready var light_tape_2: Sprite2D = $Sprite2D/Light_Tape_2
-@onready var mid_tape_1: Sprite2D = $Sprite2D/Mid_Tape_1
-@onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var tape_box: Area2D = $TapeBox
 @onready var face: Area2D = $Facebox
+@onready var mid_tape_1: Sprite2D = $Facebox/FaceSprite/Mid_Tape_1
+@onready var mid_tape_2: Sprite2D = $Facebox/FaceSprite/Mid_Tape_2
+@onready var mid_tape_3: Sprite2D = $Facebox/FaceSprite/Mid_Tape_3
+@onready var light_tape_1: Sprite2D = $Facebox/FaceSprite/Light_Tape_1
+@onready var light_tape_2: Sprite2D = $Facebox/FaceSprite/Light_Tape_2
 
 var dragging := false 
 var tape:  Area2D
@@ -65,21 +64,21 @@ func ChangeStates():
 			mid_tape_1.show()
 			mid_tape_2.show()
 			mid_tape_3.show()
-			sprite_2d.texture = MID_DAMAGE_MASK
+			face_sprite.texture = MID_DAMAGE_MASK
 		elif StateNum == 2:
 			light_tape_1.show()
 			light_tape_2.show()
 			mid_tape_1.hide()
 			mid_tape_2.hide()
 			mid_tape_3.hide()
-			sprite_2d.texture = LIGHT_DAMAGE_MASK
+			face_sprite.texture = LIGHT_DAMAGE_MASK
 		elif StateNum == 3:
 			mid_tape_1.hide()
 			mid_tape_2.hide()
 			mid_tape_3.hide()
 			light_tape_1.hide()
 			light_tape_2.hide()
-			sprite_2d.texture = FRESH_FACE
+			face_sprite.texture = FRESH_FACE
 		
 
 	

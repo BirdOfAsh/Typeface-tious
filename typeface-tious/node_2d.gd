@@ -2,6 +2,8 @@ extends Node2D
 @onready var hours_hand: Line2D = $Sprite2D/Hours
 @onready var minutes_hand: Line2D = $Sprite2D/Minutes
 
+signal clock_finished
+
 var time : float = 9.0
 var hours : float = 0.0
 var minutes : float = 0.0
@@ -28,4 +30,4 @@ func add_hour() -> void:
 
 func check_for_win() -> void:
 	if hours == 8.0:
-		print("win")
+		clock_finished.emit()
