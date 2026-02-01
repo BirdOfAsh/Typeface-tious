@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://osl0ob1tgw2r"]
+
+[ext_resource type="Script" uid="uid://7kukr6dd7rne" path="res://onScreenBlockSpawn.gd" id="1_g0rsx"]
+[ext_resource type="Script" uid="uid://cbdpvl5h1h2uh" path="res://ScreenBlockManager.gd" id="1_kpb5m"]
+[ext_resource type="Texture2D" uid="uid://gccj7ch5hw4d" path="res://icon.svg" id="2_huwo8"]
+[ext_resource type="Texture2D" uid="uid://btqd23irpa24a" path="res://tempDialogueBubble.png" id="3_huwo8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_huwo8"]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kpb5m"]
+blend_mode = 3
+
+[node name="launchDecider" type="Node2D" unique_id=1614849043]
+script = ExtResource("1_kpb5m")
+
+[node name="GodotFace1" type="Node2D" parent="." unique_id=1314430729]
+script = ExtResource("1_g0rsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="GodotFace1" unique_id=178050783]
+position = Vector2(1314.0001, 193)
+scale = Vector2(1.2578125, 1.2031249)
+texture = ExtResource("2_huwo8")
+
+[node name="SpriteTextBubble" type="Sprite2D" parent="GodotFace1" unique_id=834643546]
+visible = false
+position = Vector2(586, 429)
+scale = Vector2(0.296, -0.296)
+texture = ExtResource("3_huwo8")
+
+[node name="Marker2D" type="Marker2D" parent="GodotFace1" unique_id=1202389531]
+position = Vector2(686, 235)
+
+[node name="GodotFace2" type="Node2D" parent="." unique_id=1461016075]
+script = ExtResource("1_g0rsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="GodotFace2" unique_id=1378113944]
+material = SubResource("CanvasItemMaterial_huwo8")
+position = Vector2(755.0001, -89)
+scale = Vector2(1.2578125, 1.2031249)
+texture = ExtResource("2_huwo8")
+
+[node name="SpriteTextBubble" type="Sprite2D" parent="GodotFace2" unique_id=2072670743]
+visible = false
+position = Vector2(744.00006, 543)
+scale = Vector2(0.296, -0.296)
+texture = ExtResource("3_huwo8")
+
+[node name="Marker2D" type="Marker2D" parent="GodotFace2" unique_id=606135087]
+position = Vector2(870, 370)
+
+[node name="GodotFace3" type="Node2D" parent="." unique_id=155824711]
+script = ExtResource("1_g0rsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="GodotFace3" unique_id=153924593]
+material = SubResource("CanvasItemMaterial_kpb5m")
+position = Vector2(1342, 523)
+scale = Vector2(1.2578125, 1.2031249)
+texture = ExtResource("2_huwo8")
+
+[node name="SpriteTextBubble" type="Sprite2D" parent="GodotFace3" unique_id=2044595734]
+visible = false
+position = Vector2(409.00006, 332)
+scale = Vector2(0.296, -0.296)
+texture = ExtResource("3_huwo8")
+
+[node name="Marker2D" type="Marker2D" parent="GodotFace3" unique_id=33004990]
+position = Vector2(523, 167)
+
+[node name="GodotFace4" type="Node2D" parent="." unique_id=134705245]
+script = ExtResource("1_g0rsx")
+
+[node name="Sprite2D" type="Sprite2D" parent="GodotFace4" unique_id=637747829]
+position = Vector2(823.0001, 728)
+scale = Vector2(-1.258, -1.203)
+texture = ExtResource("2_huwo8")
+
+[node name="SpriteTextBubble" type="Sprite2D" parent="GodotFace4" unique_id=1052952217]
+visible = false
+position = Vector2(385.00006, 601)
+scale = Vector2(0.296, -0.296)
+texture = ExtResource("3_huwo8")
+
+[node name="Marker2D" type="Marker2D" parent="GodotFace4" unique_id=1707128286]
+position = Vector2(504, 435)
