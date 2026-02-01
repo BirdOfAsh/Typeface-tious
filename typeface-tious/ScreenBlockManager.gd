@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 		lastSpawnValue = elapsedTimeInSecs
 		var randomChoice : int = (randi() % 4) + 1
 		objectsOnScreen.append(randomChoice)
-	
+		
 	checkArray()
 
 #there is no way this is optimal programming but I can't think of anything better at the moment
