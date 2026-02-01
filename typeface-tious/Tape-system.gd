@@ -19,14 +19,19 @@ var tape_over_target = false
 
 
 func _process(delta):
-	if tape:
+	if tape and dragging:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			tape.global_position = get_global_mouse_position()
-				
-		
-			
-	
-
+		# Detect mouse release
+		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			dragging = false
+			if tape_over_target:
+				Heal()
+				print("Char healed!")
+			if tape:
+				tape.queue_free()
+				tape = null
+				tape_over_target = false
 
 func _on_button_pressed():
 	Heal()
@@ -63,27 +68,18 @@ func _on_face_box_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 				
 				tape.global_position = get_global_mouse_position()
 				dragging = true 
-			# Connect signals to detect when tape enters/leaves target
-			
 		else:
-			# Release
-			dragging = false
-			if tape_over_target:
-				_on_tape_dropped_on_target()
-			tape.queue_free()
-			tape = null
-			tape_over_target = false
+			if tape:
+				tape.queue_free()
+				tape = null
+				tape_over_target = false
 	
-
-
-func _on_tape_dropped_on_target():
-	print("Tape dropped on target!")
-				
-
-
 func _on_facebox_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
-
-
+	if area == tape:
+		tape_over_target = true 
+		print ("im taped up")
+	
 func _on_facebox_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area == tape:      # Check if it’s the tape exiting
+		tape_over_target = false
+		print("Tape left the face!") 
