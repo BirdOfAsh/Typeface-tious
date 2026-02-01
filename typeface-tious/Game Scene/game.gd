@@ -3,7 +3,7 @@ class_name Game extends Node
 
 
 func _ready() -> void:
-	clock.clock_finished.connect()
+	clock.clock_finished.connect(day_won)
 
 
 func day_won() -> void:

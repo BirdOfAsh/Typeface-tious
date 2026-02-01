@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b7ktl4y4dshbs"]
+
+[ext_resource type="Texture2D" uid="uid://bs2y6likpspor" path="res://assets/light_damage/light_damage_mask.png" id="1_hu44a"]
+[ext_resource type="Texture2D" uid="uid://dxqewknmfbqen" path="res://assets/light_damage/light_tape_1.png" id="2_0cr88"]
+[ext_resource type="Texture2D" uid="uid://dgicnmuelfpa" path="res://assets/light_damage/light_tape_2.png" id="3_4t6hg"]
+[ext_resource type="Texture2D" uid="uid://dnrii0ddh2oc6" path="res://assets/black-cardboard-arrow-transparent-png.png" id="4_7vrqn"]
+[ext_resource type="Texture2D" uid="uid://dnkwn1qvlh8r2" path="res://assets/desk_elements/tape/tape_dispenser.png" id="5_bhfnd"]
+[ext_resource type="Texture2D" uid="uid://dyjeii6kaeuk3" path="res://assets/desk_elements/tape/masking_tape.png" id="6_tvjhf"]
+[ext_resource type="Texture2D" uid="uid://dygxtt5fbuvrg" path="res://assets/fresh_face.png" id="7_0cr88"]
+[ext_resource type="Texture2D" uid="uid://cogj8sv81pslp" path="res://assets/mouse-left-button.svg" id="8_4t6hg"]
+
+[node name="Tutorial" type="Control" unique_id=1725003348]
+layout_mode = 3
+anchor_right = 1.202
+anchor_bottom = 1.2590001
+offset_right = -387.8401
+offset_bottom = -279.7201
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1675486597]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -725.0
+offset_top = -539.0
+offset_right = 725.0
+offset_bottom = 539.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LightDamageMask" type="Sprite2D" parent="HBoxContainer" unique_id=1931388703]
+position = Vector2(736, 533)
+scale = Vector2(0.169043, 0.169043)
+texture = ExtResource("1_hu44a")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/LightDamageMask" unique_id=1097504758]
+texture = ExtResource("2_0cr88")
+
+[node name="Sprite2D2" type="Sprite2D" parent="HBoxContainer/LightDamageMask" unique_id=1687985317]
+texture = ExtResource("3_4t6hg")
+
+[node name="BlackCardboardArrowTransparentPng" type="Sprite2D" parent="HBoxContainer" unique_id=187677178]
+position = Vector2(500.5, 524)
+scale = Vector2(0.12714285, 0.12714285)
+texture = ExtResource("4_7vrqn")
+
+[node name="TapeDispenser" type="Sprite2D" parent="HBoxContainer" unique_id=1407468178]
+position = Vector2(255, 517)
+scale = Vector2(0.2570922, 0.25709218)
+texture = ExtResource("5_bhfnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/TapeDispenser" unique_id=1751832313]
+texture = ExtResource("6_tvjhf")
+
+[node name="BlackCardboardArrowTransparentPng2" type="Sprite2D" parent="HBoxContainer" unique_id=1122210092]
+position = Vector2(999.5, 524.00006)
+scale = Vector2(0.127, 0.127)
+texture = ExtResource("4_7vrqn")
+
+[node name="FreshFace" type="Sprite2D" parent="HBoxContainer" unique_id=393107157]
+position = Vector2(1225.4995, 532.9998)
+scale = Vector2(0.169, 0.169)
+texture = ExtResource("7_0cr88")
+
+[node name="MouseLeftButton" type="Sprite2D" parent="." unique_id=572151338]
+position = Vector2(968, 733)
+scale = Vector2(0.1025, 0.1025)
+texture = ExtResource("8_4t6hg")
