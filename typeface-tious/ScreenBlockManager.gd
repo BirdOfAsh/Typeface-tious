@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	if elapsedTimeInSecs % spawnRate == 0 and elapsedTimeInSecs != lastSpawnValue:
 		print(elapsedTimeInSecs, " secs")
 		lastSpawnValue = elapsedTimeInSecs
-		var randomChoice : int = (randi() % 4) + 1
+		var randomChoice : int = (randi_range(0,1))
 		objectsOnScreen.append(randomChoice)
 		
 	checkArray()
@@ -47,8 +47,8 @@ func _process(delta: float) -> void:
 #there is no way this is optimal programming but I can't think of anything better at the moment
 func checkArray() -> void:
 	firstObject.onScreen = true if objectsOnScreen.has(1) == true else false
-	secondObject.onScreen = true if objectsOnScreen.has(2) == true else false
-	thirdObject.onScreen = true if objectsOnScreen.has(3) == true else false
-	forthObject.onScreen = true if objectsOnScreen.has(4) == true else false
+	#secondObject.onScreen = true if objectsOnScreen.has(2) == true else false
+	#thirdObject.onScreen = true if objectsOnScreen.has(3) == true else false
+	#forthObject.onScreen = true if objectsOnScreen.has(4) == true else false
 	if objectsOnScreen.has(0) == true:
 		print("Something isn't indexed correctly")

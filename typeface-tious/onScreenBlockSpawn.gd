@@ -3,7 +3,7 @@ extends Node2D
 func _ready() -> void:
 	marker = $Marker2D
 	sprite = $Sprite2D
-	textBubble = $SpriteTextBubble
+	textBubble = $Sprite2D/SpriteTextBubble
 	coordinatesOnScreen = marker.position
 	coordinatesOffScreen = sprite.position
 

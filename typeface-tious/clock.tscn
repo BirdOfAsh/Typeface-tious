@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c80rteef2t23x"]
+[gd_scene format=3 uid="uid://xc82w6eq6cad"]
 
 [ext_resource type="Script" uid="uid://bwgyefnqoe5bw" path="res://node_2d.gd" id="1_kig64"]
 [ext_resource type="Texture2D" uid="uid://cnl8s508g7iiq" path="res://tempClock.png" id="2_4n1wf"]
@@ -13,11 +13,12 @@ scale = Vector2(0.054814816, 0.054814816)
 texture = ExtResource("2_4n1wf")
 
 [node name="Hours" type="Line2D" parent="Sprite2D" unique_id=1042184460]
-points = PackedVector2Array(0, 0, 0, -693.24316)
-width = 20.0
+rotation = 4.712389
+points = PackedVector2Array(0, 0, 0, -401.945)
+width = 40.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="Minutes" type="Line2D" parent="Sprite2D" unique_id=1894063712]
-points = PackedVector2Array(0, 0, 0, -328.37842)
-width = 40.0
+points = PackedVector2Array(0, 0, 0, -672.763)
+width = 20.0
 default_color = Color(0, 0, 0, 1)

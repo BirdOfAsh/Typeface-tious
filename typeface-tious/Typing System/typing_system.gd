@@ -2,9 +2,8 @@ class_name TypingSystem extends Node2D
 
 @onready var text_1: RichTextLabel = $Text
 @onready var text_2: RichTextLabel = $Text2
-@onready var text_3: RichTextLabel = $Text3
 
-@onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2, text_3]
+@onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2]
 
 var current_text_line : RichTextLabel
 
