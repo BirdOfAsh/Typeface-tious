@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b4n0dwi3du4ik" path="res://Typing System/typing_system.gd" id="1_g6vd3"]
 [ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="2_x4cdm"]
+[ext_resource type="AudioStream" uid="uid://cfdi3upf67u0q" path="res://Record (mp3cut.net).mp3" id="3_sgnn0"]
+[ext_resource type="Script" uid="uid://b1n4qrrv7hbit" path="res://Typing System/noiseRandomizer.gd" id="4_3unwk"]
 
 [node name="Typing System" type="Node2D" unique_id=577233112]
 script = ExtResource("1_g6vd3")
@@ -42,3 +44,8 @@ bbcode_enabled = true
 text = "var variable : String = \"This is a sentence\""
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="KeyboardNoise" type="AudioStreamPlayer" parent="." unique_id=1202932457]
+stream = ExtResource("3_sgnn0")
+pitch_scale = 0.76
+script = ExtResource("4_3unwk")
