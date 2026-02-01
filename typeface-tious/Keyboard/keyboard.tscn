@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://h2btuqmt5avi"]
 
 [ext_resource type="Texture2D" uid="uid://uma705m8w5i4" path="res://assets/desk_elements/keyboard/base.png" id="1_f1lle"]
+[ext_resource type="Script" uid="uid://cnkycvtimde5a" path="res://Keyboard/keyboard.gd" id="1_n628p"]
 [ext_resource type="Texture2D" uid="uid://csmwte8y8rkpj" path="res://assets/desk_elements/keyboard/fifth_row/key_left_ctrl.png" id="2_isxmr"]
 [ext_resource type="Texture2D" uid="uid://cffiw66nnm6yp" path="res://assets/desk_elements/keyboard/fifth_row/key_left_fn.png" id="3_4q438"]
 [ext_resource type="Texture2D" uid="uid://cjtw1wb7ivcko" path="res://assets/desk_elements/keyboard/fifth_row/key_menu.png" id="4_2bbjx"]
@@ -62,201 +63,412 @@
 [ext_resource type="Texture2D" uid="uid://bxatbh5tmrlkj" path="res://assets/desk_elements/keyboard/first_row/key_dash.png" id="47_fu1ya"]
 [ext_resource type="Texture2D" uid="uid://dgkjq7c8teigm" path="res://assets/desk_elements/keyboard/first_row/key_equal.png" id="48_aht27"]
 [ext_resource type="Texture2D" uid="uid://i3usow7wt5ja" path="res://assets/desk_elements/keyboard/first_row/key_sqiggle.png" id="49_1og72"]
+[ext_resource type="Texture2D" uid="uid://bnkr36sh57mbd" path="res://assets/left_hand.png" id="64_m7hrt"]
+[ext_resource type="Texture2D" uid="uid://bwfb5k13rlskw" path="res://assets/right_hand.png" id="65_schlw"]
 
 [node name="Keyboard" type="Node2D" unique_id=494832227]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_n628p")
 
 [node name="Keyboard Sprite" type="Sprite2D" parent="." unique_id=1663756359]
 texture = ExtResource("1_f1lle")
 
-[node name="5thRowKeys" type="Node" parent="." unique_id=181879837]
+[node name="5thRowKeys" type="Node2D" parent="." unique_id=358610292]
 
-[node name="L-Ctrl" type="Sprite2D" parent="5thRowKeys" unique_id=754721727]
+[node name="Ctrl" type="Sprite2D" parent="5thRowKeys" unique_id=754721727]
 texture = ExtResource("2_isxmr")
+
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/Ctrl" unique_id=1176470628]
+position = Vector2(-848, 768)
 
 [node name="L-Fnc" type="Sprite2D" parent="5thRowKeys" unique_id=724532362]
 texture = ExtResource("3_4q438")
 
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/L-Fnc" unique_id=40209950]
+position = Vector2(-688, 768)
+
 [node name="Menu" type="Sprite2D" parent="5thRowKeys" unique_id=356160375]
 texture = ExtResource("4_2bbjx")
 
-[node name="R-Alt" type="Sprite2D" parent="5thRowKeys" unique_id=252522658]
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/Menu" unique_id=337803475]
+position = Vector2(840, 768)
+
+[node name="Alt" type="Sprite2D" parent="5thRowKeys" unique_id=252522658]
 texture = ExtResource("5_myaos")
+
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/Alt" unique_id=300803069]
+position = Vector2(352, 768)
 
 [node name="R-Ctrl" type="Sprite2D" parent="5thRowKeys" unique_id=1105101958]
 texture = ExtResource("6_wrw2c")
 
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/R-Ctrl" unique_id=1924876522]
+position = Vector2(696, 768)
+
 [node name="R-Fnc" type="Sprite2D" parent="5thRowKeys" unique_id=1599351657]
 texture = ExtResource("7_w30r7")
 
-[node name="Spacebar" type="Sprite2D" parent="5thRowKeys" unique_id=1128942816]
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/R-Fnc" unique_id=668699179]
+position = Vector2(520, 768)
+
+[node name="Space" type="Sprite2D" parent="5thRowKeys" unique_id=1128942816]
 texture = ExtResource("8_x313n")
+
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/Space" unique_id=1912695350]
+position = Vector2(-64, 768)
 
 [node name="Windows" type="Sprite2D" parent="5thRowKeys" unique_id=1252310675]
 texture = ExtResource("9_epb5v")
 
-[node name="4thRowKeys" type="Node" parent="." unique_id=529327186]
+[node name="Marker2D" type="Marker2D" parent="5thRowKeys/Windows" unique_id=466750123]
+position = Vector2(-528, 768)
+
+[node name="4thRowKeys" type="Node2D" parent="." unique_id=991374989]
 
 [node name="B" type="Sprite2D" parent="4thRowKeys" unique_id=1075863621]
 texture = ExtResource("10_mmerp")
 
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/B" unique_id=856115939]
+position = Vector2(-64, 648)
+
 [node name="C" type="Sprite2D" parent="4thRowKeys" unique_id=1620363470]
 texture = ExtResource("11_olm2h")
+
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/C" unique_id=749328084]
+position = Vector2(-312, 648)
 
 [node name="Comma" type="Sprite2D" parent="4thRowKeys" unique_id=70028943]
 texture = ExtResource("12_vdx3q")
 
-[node name="ForwardSlash" type="Sprite2D" parent="4thRowKeys" unique_id=732474720]
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/Comma" unique_id=578437178]
+position = Vector2(312, 648)
+
+[node name="Slash" type="Sprite2D" parent="4thRowKeys" unique_id=732474720]
 texture = ExtResource("13_sonk7")
 
-[node name="L-Shift" type="Sprite2D" parent="4thRowKeys" unique_id=1217550209]
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/Slash" unique_id=1488565953]
+position = Vector2(552, 648)
+
+[node name="Shift" type="Sprite2D" parent="4thRowKeys" unique_id=1217550209]
 texture = ExtResource("14_aq1rk")
+
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/Shift" unique_id=178198075]
+position = Vector2(-768, 648)
 
 [node name="M" type="Sprite2D" parent="4thRowKeys" unique_id=1668025204]
 texture = ExtResource("15_88jf6")
 
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/M" unique_id=1218826236]
+position = Vector2(184, 648)
+
 [node name="N" type="Sprite2D" parent="4thRowKeys" unique_id=558352357]
 texture = ExtResource("16_fb84w")
+
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/N" unique_id=1750913676]
+position = Vector2(64, 648)
 
 [node name="Period" type="Sprite2D" parent="4thRowKeys" unique_id=670292377]
 texture = ExtResource("17_rifxy")
 
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/Period" unique_id=781067244]
+position = Vector2(440, 648)
+
 [node name="R-Shift" type="Sprite2D" parent="4thRowKeys" unique_id=521045512]
 texture = ExtResource("18_8tp6l")
+
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/R-Shift" unique_id=1860066353]
+position = Vector2(768, 648)
 
 [node name="V" type="Sprite2D" parent="4thRowKeys" unique_id=895941089]
 texture = ExtResource("19_ssnvl")
 
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/V" unique_id=117913760]
+position = Vector2(-192, 648)
+
 [node name="X" type="Sprite2D" parent="4thRowKeys" unique_id=1122094625]
 texture = ExtResource("20_n628p")
+
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/X" unique_id=492164485]
+position = Vector2(-432, 648)
 
 [node name="Z" type="Sprite2D" parent="4thRowKeys" unique_id=732815404]
 texture = ExtResource("21_m7hrt")
 
-[node name="3rdRowKeys" type="Node" parent="." unique_id=1852961005]
+[node name="Marker2D" type="Marker2D" parent="4thRowKeys/Z" unique_id=1016676835]
+position = Vector2(-560, 648)
+
+[node name="3rdRowKeys" type="Node2D" parent="." unique_id=1804415729]
 
 [node name="A" type="Sprite2D" parent="3rdRowKeys" unique_id=390383586]
 texture = ExtResource("22_ssnvl")
 
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/A" unique_id=553786910]
+position = Vector2(-608, 536)
+
 [node name="Apostrophe" type="Sprite2D" parent="3rdRowKeys" unique_id=204285939]
 texture = ExtResource("23_n628p")
 
-[node name="Capslock" type="Sprite2D" parent="3rdRowKeys" unique_id=1628622859]
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/Apostrophe" unique_id=244176872]
+position = Vector2(600, 536)
+
+[node name="Caps" type="Sprite2D" parent="3rdRowKeys" unique_id=1628622859]
 texture = ExtResource("24_m7hrt")
+
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/Caps" unique_id=674092214]
+position = Vector2(-784, 536)
 
 [node name="D" type="Sprite2D" parent="3rdRowKeys" unique_id=1238671011]
 texture = ExtResource("25_schlw")
 
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/D" unique_id=1134066859]
+position = Vector2(-368, 536)
+
 [node name="F" type="Sprite2D" parent="3rdRowKeys" unique_id=1377988961]
 texture = ExtResource("26_8m3aa")
+
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/F" unique_id=1792831776]
+position = Vector2(-248, 536)
 
 [node name="G" type="Sprite2D" parent="3rdRowKeys" unique_id=85091883]
 texture = ExtResource("27_ygiog")
 
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/G" unique_id=120474591]
+position = Vector2(-128, 536)
+
 [node name="H" type="Sprite2D" parent="3rdRowKeys" unique_id=2095603597]
 texture = ExtResource("28_godvr")
+
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/H" unique_id=865840052]
+position = Vector2(0, 536)
 
 [node name="J" type="Sprite2D" parent="3rdRowKeys" unique_id=1979867051]
 texture = ExtResource("29_ghqel")
 
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/J" unique_id=1828131464]
+position = Vector2(120, 536)
+
 [node name="K" type="Sprite2D" parent="3rdRowKeys" unique_id=433517908]
 texture = ExtResource("30_pbj2n")
+
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/K" unique_id=461998222]
+position = Vector2(240, 536)
 
 [node name="L" type="Sprite2D" parent="3rdRowKeys" unique_id=1949447628]
 texture = ExtResource("31_teaut")
 
-[node name="Return" type="Sprite2D" parent="3rdRowKeys" unique_id=1659381334]
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/L" unique_id=328534439]
+position = Vector2(360, 536)
+
+[node name="Enter" type="Sprite2D" parent="3rdRowKeys" unique_id=1659381334]
 texture = ExtResource("32_xswc5")
+
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/Enter" unique_id=435115237]
+position = Vector2(768, 536)
 
 [node name="S" type="Sprite2D" parent="3rdRowKeys" unique_id=1737949253]
 texture = ExtResource("33_lgwng")
 
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/S" unique_id=1335035643]
+position = Vector2(-480, 536)
+
 [node name="Semicolon" type="Sprite2D" parent="3rdRowKeys" unique_id=518798697]
 texture = ExtResource("34_irifp")
 
-[node name="2ndRowKeys" type="Node" parent="." unique_id=458823849]
+[node name="Marker2D" type="Marker2D" parent="3rdRowKeys/Semicolon" unique_id=231861545]
+position = Vector2(480, 536)
+
+[node name="2ndRowKeys" type="Node2D" parent="." unique_id=361028292]
 
 [node name="BackSlash" type="Sprite2D" parent="2ndRowKeys" unique_id=1790853763]
 texture = ExtResource("22_schlw")
 
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/BackSlash" unique_id=530883961]
+position = Vector2(792, 424)
+
 [node name="E" type="Sprite2D" parent="2ndRowKeys" unique_id=300781324]
 texture = ExtResource("23_8m3aa")
+
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/E" unique_id=1675401324]
+position = Vector2(-384, 424)
 
 [node name="I" type="Sprite2D" parent="2ndRowKeys" unique_id=1122958827]
 texture = ExtResource("24_ygiog")
 
-[node name="L-Bracket" type="Sprite2D" parent="2ndRowKeys" unique_id=2015465316]
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/I" unique_id=2039863744]
+position = Vector2(200, 424)
+
+[node name="LeftBracket" type="Sprite2D" parent="2ndRowKeys" unique_id=2015465316]
 texture = ExtResource("25_godvr")
+
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/LeftBracket" unique_id=632978616]
+position = Vector2(552, 424)
 
 [node name="O" type="Sprite2D" parent="2ndRowKeys" unique_id=957207578]
 texture = ExtResource("26_ghqel")
 
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/O" unique_id=148553178]
+position = Vector2(320, 424)
+
 [node name="P" type="Sprite2D" parent="2ndRowKeys" unique_id=1717281403]
 texture = ExtResource("27_pbj2n")
+
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/P" unique_id=1153433774]
+position = Vector2(440, 424)
 
 [node name="Q" type="Sprite2D" parent="2ndRowKeys" unique_id=62788667]
 texture = ExtResource("28_teaut")
 
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/Q" unique_id=929074307]
+position = Vector2(-624, 424)
+
 [node name="R" type="Sprite2D" parent="2ndRowKeys" unique_id=623859033]
 texture = ExtResource("29_xswc5")
 
-[node name="R-Bracket" type="Sprite2D" parent="2ndRowKeys" unique_id=1203171282]
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/R" unique_id=1505256551]
+position = Vector2(-264, 424)
+
+[node name="RightBracket" type="Sprite2D" parent="2ndRowKeys" unique_id=1203171282]
 texture = ExtResource("30_lgwng")
+
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/RightBracket" unique_id=347197209]
+position = Vector2(672, 424)
 
 [node name="T" type="Sprite2D" parent="2ndRowKeys" unique_id=100281157]
 texture = ExtResource("31_irifp")
 
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/T" unique_id=969967345]
+position = Vector2(-152, 424)
+
 [node name="Tab" type="Sprite2D" parent="2ndRowKeys" unique_id=343510795]
 texture = ExtResource("32_sy2wp")
+
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/Tab" unique_id=429923579]
+position = Vector2(-776, 424)
 
 [node name="U" type="Sprite2D" parent="2ndRowKeys" unique_id=833842648]
 texture = ExtResource("33_et1bg")
 
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/U" unique_id=563897058]
+position = Vector2(80, 424)
+
 [node name="W" type="Sprite2D" parent="2ndRowKeys" unique_id=706320121]
 texture = ExtResource("34_wcdas")
+
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/W" unique_id=435944082]
+position = Vector2(-504, 424)
 
 [node name="Y" type="Sprite2D" parent="2ndRowKeys" unique_id=1214482914]
 texture = ExtResource("35_nrwib")
 
-[node name="1stRowKeys" type="Node" parent="." unique_id=1921705582]
+[node name="Marker2D" type="Marker2D" parent="2ndRowKeys/Y" unique_id=2048508381]
+position = Vector2(-32, 424)
+
+[node name="1stRowKeys" type="Node2D" parent="." unique_id=1462521504]
 
 [node name="0" type="Sprite2D" parent="1stRowKeys" unique_id=2136838880]
 texture = ExtResource("36_npgmq")
 
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/0" unique_id=1355578730]
+position = Vector2(368, 320)
+
 [node name="1" type="Sprite2D" parent="1stRowKeys" unique_id=1968467706]
 texture = ExtResource("37_m0d5t")
+
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/1" unique_id=321415922]
+position = Vector2(-672, 320)
 
 [node name="2" type="Sprite2D" parent="1stRowKeys" unique_id=1048494445]
 texture = ExtResource("38_igrk6")
 
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/2" unique_id=1851925361]
+position = Vector2(-552, 320)
+
 [node name="3" type="Sprite2D" parent="1stRowKeys" unique_id=1717594461]
 texture = ExtResource("39_xo7me")
+
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/3" unique_id=349125428]
+position = Vector2(-440, 320)
 
 [node name="4" type="Sprite2D" parent="1stRowKeys" unique_id=1216347272]
 texture = ExtResource("40_5bplx")
 
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/4" unique_id=1725339966]
+position = Vector2(-320, 320)
+
 [node name="5" type="Sprite2D" parent="1stRowKeys" unique_id=169955539]
 texture = ExtResource("41_algl1")
+
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/5" unique_id=724462807]
+position = Vector2(-208, 320)
 
 [node name="6" type="Sprite2D" parent="1stRowKeys" unique_id=2144505507]
 texture = ExtResource("42_ygbid")
 
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/6" unique_id=1825513392]
+position = Vector2(-96, 320)
+
 [node name="7" type="Sprite2D" parent="1stRowKeys" unique_id=684754523]
 texture = ExtResource("43_afhne")
+
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/7" unique_id=1834308287]
+position = Vector2(24, 320)
 
 [node name="8" type="Sprite2D" parent="1stRowKeys" unique_id=576124925]
 texture = ExtResource("44_5wxqf")
 
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/8" unique_id=504244168]
+position = Vector2(136, 320)
+
 [node name="9" type="Sprite2D" parent="1stRowKeys" unique_id=345440598]
 texture = ExtResource("45_llets")
+
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/9" unique_id=1423843852]
+position = Vector2(256, 320)
 
 [node name="Backspace" type="Sprite2D" parent="1stRowKeys" unique_id=1888076955]
 texture = ExtResource("46_ffpjc")
 
-[node name="Dash" type="Sprite2D" parent="1stRowKeys" unique_id=56193254]
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/Backspace" unique_id=624979196]
+position = Vector2(744, 320)
+
+[node name="Minus" type="Sprite2D" parent="1stRowKeys" unique_id=56193254]
 texture = ExtResource("47_fu1ya")
 
-[node name="Equals" type="Sprite2D" parent="1stRowKeys" unique_id=1505655525]
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/Minus" unique_id=2003672601]
+position = Vector2(480, 320)
+
+[node name="Equal" type="Sprite2D" parent="1stRowKeys" unique_id=1505655525]
 texture = ExtResource("48_aht27")
 
-[node name="Squiggle" type="Sprite2D" parent="1stRowKeys" unique_id=1077949011]
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/Equal" unique_id=1397098544]
+position = Vector2(592, 320)
+
+[node name="QuoteLeft" type="Sprite2D" parent="1stRowKeys" unique_id=1077949011]
 texture = ExtResource("49_1og72")
+
+[node name="Marker2D" type="Marker2D" parent="1stRowKeys/QuoteLeft" unique_id=1504740911]
+position = Vector2(-784, 320)
+
+[node name="LeftHandMarker" type="Marker2D" parent="." unique_id=1841452658]
+position = Vector2(-1232, 320)
+
+[node name="HandLeft" type="Sprite2D" parent="LeftHandMarker" unique_id=1389923387]
+position = Vector2(-96, 624)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("64_m7hrt")
+
+[node name="RightHandMarker" type="Marker2D" parent="." unique_id=942334898]
+position = Vector2(1184, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightHandMarker" unique_id=1485125281]
+position = Vector2(112, 624)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("65_schlw")
+
+[node name="LeftHandTimer" type="Timer" parent="." unique_id=770118278]
+wait_time = 0.5
+
+[node name="RightHandTimer" type="Timer" parent="." unique_id=128874039]
+
+[connection signal="timeout" from="LeftHandTimer" to="." method="_on_left_hand_timer_timeout"]
+[connection signal="timeout" from="RightHandTimer" to="." method="_on_right_hand_timer_timeout"]

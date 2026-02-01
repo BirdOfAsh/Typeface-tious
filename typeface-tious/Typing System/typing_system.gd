@@ -25,10 +25,18 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if !(event is InputEventKey) or !event.is_pressed() or event.is_echo():
+	if !(event is InputEventKey) or !(event.is_pressed() or event.is_released()) or event.is_echo():
 		return
-		
+	
+	
 	var character : String = OS.get_keycode_string(event.get_key_label_with_modifiers())
+	
+	if event.is_released():
+		if character.contains("Shift+"):
+			SignalBus.key_released.emit(character.replace("Shift+", ""))
+		else:
+			SignalBus.key_released.emit(character)
+		return
 	
 	if character.length() == 1:
 		add_key_to_string(character)
@@ -69,6 +77,7 @@ func _input(event: InputEvent) -> void:
 				add_capital_letter_to_string(character)
 			_:
 				add_key_to_string("?")
+	
 	
 	SignalBus.key_pressed.emit(character)
 	check_against_text()
@@ -136,13 +145,14 @@ func move_to_next_line() -> void:
 	if current_text_line == array_of_text_lines[-1]:
 		reset_text_lines()
 		current_text_line = array_of_text_lines[0]
+		update_day_progress()
 	else:
 		current_text_line = array_of_text_lines[array_of_text_lines.find(current_text_line) + 1]
 	
 	typed_text = ""
 	listed_text = current_text_line.text
 	check_against_text()
-	
+
 
 func update_text(line : RichTextLabel, updated_text : String) -> void:
 	line.text = updated_text
@@ -151,3 +161,7 @@ func update_text(line : RichTextLabel, updated_text : String) -> void:
 func add_underline_to_next_letter() -> void:
 	if typed_text.length() < listed_text.length():
 		current_text_line.text += "[u]"+listed_text[+typed_text.length()]+"[/u]"
+
+
+func update_day_progress() -> void:
+	SignalBus.line_finished.emit()

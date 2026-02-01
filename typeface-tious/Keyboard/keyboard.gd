@@ -1,0 +1,55 @@
+class_name Keyboard extends Node2D
+@onready var _5_th_row_keys: Node2D = $"5thRowKeys"
+@onready var _4_th_row_keys: Node2D = $"4thRowKeys"
+@onready var _3_rd_row_keys: Node2D = $"3rdRowKeys"
+@onready var _2_nd_row_keys: Node2D = $"2ndRowKeys"
+@onready var _1_st_row_keys: Node2D = $"1stRowKeys"
+@onready var left_hand_marker: Marker2D = $LeftHandMarker
+@onready var right_hand_marker: Marker2D = $RightHandMarker
+@onready var left_hand_timer: Timer = $LeftHandTimer
+@onready var right_hand_timer: Timer = $RightHandTimer
+
+
+@onready var key_rows : Array[Node2D] = [_5_th_row_keys, _4_th_row_keys, _3_rd_row_keys, _2_nd_row_keys, _1_st_row_keys]
+
+var left_hand_init_pos : Vector2
+var right_hand_init_pos : Vector2
+
+func _ready() -> void:
+	SignalBus.key_pressed.connect(find_key_position)
+	SignalBus.key_released.connect(lower_key)
+	
+	left_hand_init_pos = left_hand_marker.position
+	right_hand_init_pos = right_hand_marker.position
+
+func find_key_position(key_name : String) -> void:
+	for row : Node2D in key_rows:
+		for child : Sprite2D in row.get_children():
+			if child.get_child_count() != 0 and child.name == StringName(key_name):
+				var tween : Tween = get_tree().create_tween()
+				child.position.y += 10
+				if child.get_child(0).position <= (get_viewport_transform().x/2):
+					tween.tween_property(left_hand_marker, "position", child.get_child(0).position, 0.05)
+					left_hand_timer.start()
+				else:
+					tween.tween_property(right_hand_marker, "position", child.get_child(0).position, 0.05)
+					right_hand_timer.start()
+
+
+func lower_key(key_name : String) -> void:
+	for row : Node2D in key_rows:
+		for child : Sprite2D in row.get_children():
+			if child.get_child_count() != 0 and child.name == StringName(key_name):
+				child.position.y -= 10
+
+
+
+
+func _on_left_hand_timer_timeout() -> void:
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(left_hand_marker, "position", left_hand_init_pos, 0.05)
+
+
+func _on_right_hand_timer_timeout() -> void:
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(right_hand_marker, "position", right_hand_init_pos, 0.05)
