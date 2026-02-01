@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bd66osfavf406"]
 
 [ext_resource type="Script" uid="uid://hojyyyjn0rar" path="res://MainMenu/main_menu.gd" id="1_otibh"]
-[ext_resource type="FontFile" uid="uid://be46jbscltqjo" path="res://assets/Font/Terminal.ttf" id="2_cruaa"]
+[ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="2_cruaa"]
 
 [sub_resource type="Theme" id="Theme_cruaa"]
 
