@@ -26,12 +26,13 @@ func find_key_position(key_name : String) -> void:
 	for row : Node2D in key_rows:
 		for child : Sprite2D in row.get_children():
 			if child.get_child_count() != 0 and child.name == StringName(key_name):
+				var tween : Tween = get_tree().create_tween()
 				child.position.y += 10
 				if child.get_child(0).position <= (get_viewport_transform().x/2):
-					left_hand_marker.position = child.get_child(0).position
+					tween.tween_property(left_hand_marker, "position", child.get_child(0).position, 0.05)
 					left_hand_timer.start()
 				else:
-					right_hand_marker.position = child.get_child(0).position
+					tween.tween_property(right_hand_marker, "position", child.get_child(0).position, 0.05)
 					right_hand_timer.start()
 
 
@@ -45,8 +46,10 @@ func lower_key(key_name : String) -> void:
 
 
 func _on_left_hand_timer_timeout() -> void:
-	left_hand_marker.position = left_hand_init_pos
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(left_hand_marker, "position", left_hand_init_pos, 0.05)
 
 
 func _on_right_hand_timer_timeout() -> void:
-	right_hand_marker.position = right_hand_init_pos
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(right_hand_marker, "position", right_hand_init_pos, 0.05)

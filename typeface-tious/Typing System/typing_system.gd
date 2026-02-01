@@ -152,7 +152,7 @@ func move_to_next_line() -> void:
 	typed_text = ""
 	listed_text = current_text_line.text
 	check_against_text()
-	
+
 
 func update_text(line : RichTextLabel, updated_text : String) -> void:
 	line.text = updated_text
