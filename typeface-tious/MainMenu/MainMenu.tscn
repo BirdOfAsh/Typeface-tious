@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bd66osfavf406"]
 
 [ext_resource type="Script" uid="uid://hojyyyjn0rar" path="res://MainMenu/main_menu.gd" id="1_otibh"]
-[ext_resource type="FontFile" uid="uid://be46jbscltqjo" path="res://assets/Font/Terminal.ttf" id="2_cruaa"]
 [ext_resource type="Texture2D" uid="uid://jpseb0he06b4" path="res://assets/desk_elements/office_computer.png" id="3_430ii"]
 [ext_resource type="Texture2D" uid="uid://t1p3ictlgi1p" path="res://assets/desk_elements/office_desk.png" id="4_3p42x"]
 [ext_resource type="Texture2D" uid="uid://cp2y3tt48d2lb" path="res://assets/desk_elements/office_background.png" id="5_3clmd"]
@@ -29,13 +28,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_cruaa")
-theme_override_fonts/font = ExtResource("2_cruaa")
 text = "Start"
 
 [node name="Credit" type="Button" parent="VBoxContainer" unique_id=936112067]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_cruaa")
 text = "Credits"
 
 [node name="OfficeComputer" type="Sprite2D" parent="." unique_id=1899072465]
@@ -62,4 +59,3 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_3p42x")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credit" to="." method="_on_credit_pressed"]

@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://d36pxt05horsu"]
+
+[ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://2t6vjndokay3" path="res://assets/clock_face.png" id="1_6a6wx"]
+[ext_resource type="Texture2D" uid="uid://jpseb0he06b4" path="res://assets/desk_elements/office_computer.png" id="2_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://t1p3ictlgi1p" path="res://assets/desk_elements/office_desk.png" id="3_kbped"]
+[ext_resource type="Texture2D" uid="uid://cp2y3tt48d2lb" path="res://assets/desk_elements/office_background.png" id="4_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://dnkwn1qvlh8r2" path="res://assets/desk_elements/tape/tape_dispenser.png" id="5_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://dyjeii6kaeuk3" path="res://assets/desk_elements/tape/masking_tape.png" id="6_iy58a"]
+[ext_resource type="Texture2D" uid="uid://c3610ox4kecsk" path="res://assets/desk_elements/einstein_mousepad.png" id="8_sky72"]
+
+[node name="Credits" type="Node" unique_id=810122558]
+
+[node name="ClockFace" type="Sprite2D" parent="." unique_id=2077857209]
+position = Vector2(1714, 149)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("1_6a6wx")
+
+[node name="Hours" type="Line2D" parent="ClockFace" unique_id=1462371565]
+rotation = 4.712389
+points = PackedVector2Array(0, 0, 0, -401.945)
+width = 40.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Minutes" type="Line2D" parent="ClockFace" unique_id=957313478]
+points = PackedVector2Array(0, 0, 0, -672.763)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1059750534]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -535.0
+offset_top = -328.0
+offset_right = 616.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0fbet")
+theme_override_font_sizes/font_size = 50
+text = "Phoenix: Programmer
+Aswath: programmer
+Stella: Artist
+Braiden: Audio
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OfficeComputer" type="Sprite2D" parent="." unique_id=1180610124]
+z_index = -1
+position = Vector2(991, 413)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ee4bf")
+
+[node name="DeskTable" type="Sprite2D" parent="." unique_id=1062871078]
+z_index = -2
+position = Vector2(960.9816, 560)
+scale = Vector2(0.50688076, 0.50688076)
+texture = ExtResource("3_kbped")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1113732347]
+z_index = -3
+position = Vector2(960.00006, 624)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("4_fj5cn")
+
+[node name="Tape" type="Sprite2D" parent="." unique_id=1178375524]
+z_index = -1
+position = Vector2(356, 600)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_fj5cn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tape" unique_id=1396115478]
+texture = ExtResource("6_iy58a")
+
+[node name="Mousepad" type="Sprite2D" parent="." unique_id=681553554]
+z_index = -1
+position = Vector2(1008.00006, 584)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("8_sky72")
+
+[node name="Label2" type="Label" parent="." unique_id=858081558]
+offset_left = 889.0
+offset_top = 143.0
+offset_right = 1099.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("1_0fbet")
+theme_override_font_sizes/font_size = 50
+text = "Credits"

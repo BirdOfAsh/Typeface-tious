@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwah035yomhcs"]
 
-[ext_resource type="Texture2D" uid="uid://dc4e0j57sd42n" path="res://assets/B9z81czJt9g-png__700.jpg" id="1_1r8yd"]
+[ext_resource type="Texture2D" uid="uid://dgicnmuelfpa" path="res://assets/light_damage/light_tape_2.png" id="1_761wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mel8"]
 size = Vector2(123, 122)
@@ -12,4 +12,6 @@ position = Vector2(51.5, 51)
 shape = SubResource("RectangleShape2D_4mel8")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=723497399]
-texture = ExtResource("1_1r8yd")
+position = Vector2(106.499985, -89)
+scale = Vector2(0.3086032, 0.30092165)
+texture = ExtResource("1_761wt")
