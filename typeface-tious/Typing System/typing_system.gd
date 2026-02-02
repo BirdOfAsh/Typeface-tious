@@ -214,4 +214,5 @@ func reset_timer() -> void:
 
 
 func _on_timer_timeout() -> void:
+	reset_timer()
 	SignalBus.call_da_boss.emit()
