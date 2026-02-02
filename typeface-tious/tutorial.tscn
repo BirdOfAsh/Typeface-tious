@@ -34,15 +34,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -317.0
-offset_top = -421.0
-offset_right = 421.0
-offset_bottom = 81.0
+offset_left = -360.0
+offset_top = -438.0
+offset_right = 378.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LightDamageMask" type="Sprite2D" parent="HBoxContainer" unique_id=1931388703]
-position = Vector2(358, 224)
+position = Vector2(342, 224)
 scale = Vector2(0.095637985, 0.095637985)
 texture = ExtResource("1_hu44a")
 
@@ -53,7 +53,7 @@ texture = ExtResource("2_0cr88")
 texture = ExtResource("3_4t6hg")
 
 [node name="BlackCardboardArrowTransparentPng" type="Sprite2D" parent="HBoxContainer" unique_id=187677178]
-position = Vector2(190.5, 227)
+position = Vector2(184.5, 227)
 scale = Vector2(0.12714285, 0.12714285)
 texture = ExtResource("4_7vrqn")
 
@@ -66,23 +66,23 @@ texture = ExtResource("5_bhfnd")
 texture = ExtResource("6_tvjhf")
 
 [node name="BlackCardboardArrowTransparentPng2" type="Sprite2D" parent="HBoxContainer" unique_id=1122210092]
-position = Vector2(523, 227)
+position = Vector2(507, 227)
 scale = Vector2(0.127, 0.127)
 texture = ExtResource("4_7vrqn")
 
 [node name="FreshFace" type="Sprite2D" parent="HBoxContainer" unique_id=393107157]
-position = Vector2(692, 224)
+position = Vector2(656, 224)
 scale = Vector2(0.096, 0.096)
 texture = ExtResource("7_0cr88")
 
 [node name="MouseLeftButton" type="Sprite2D" parent="." unique_id=572151338]
-position = Vector2(827, 444)
+position = Vector2(781, 441.00003)
 scale = Vector2(0.1025, 0.1025)
 texture = ExtResource("8_4t6hg")
 
 [node name="OfficeComputer" type="Sprite2D" parent="." unique_id=756987605]
 z_index = -1
-position = Vector2(991, 413)
+position = Vector2(936, 408)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("9_tvjhf")
 
@@ -121,9 +121,9 @@ width = 20.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="Button" type="Button" parent="." unique_id=967790056]
-offset_left = 716.0
+offset_left = 666.0
 offset_top = 828.0
-offset_right = 1316.0
+offset_right = 1266.0
 offset_bottom = 1018.0
 theme_override_fonts/font = ExtResource("12_vmw6g")
 theme_override_font_sizes/font_size = 50

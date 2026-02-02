@@ -9,12 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dyjeii6kaeuk3" path="res://assets/desk_elements/tape/masking_tape.png" id="6_iy58a"]
 [ext_resource type="Texture2D" uid="uid://c3610ox4kecsk" path="res://assets/desk_elements/einstein_mousepad.png" id="8_sky72"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
-bg_color = Color(0.3001788, 0.29354146, 0.30349743, 0.8901961)
-border_width_bottom = 40
-border_color = Color(0.29464048, 0.29464066, 0.2946406, 1)
-anti_aliasing = false
-
 [node name="Credits" type="Node" unique_id=810122558]
 
 [node name="ClockFace" type="Sprite2D" parent="." unique_id=2077857209]
@@ -73,16 +67,6 @@ position = Vector2(960.00006, 624)
 scale = Vector2(0.51, 0.51)
 texture = ExtResource("4_fj5cn")
 
-[node name="Button" type="Button" parent="." unique_id=117458962]
-offset_left = 716.0
-offset_top = 828.0
-offset_right = 1316.0
-offset_bottom = 1018.0
-theme_override_fonts/font = ExtResource("1_0fbet")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
-text = "Main menu"
-
 [node name="Tape" type="Sprite2D" parent="." unique_id=1178375524]
 z_index = -1
 position = Vector2(356, 600)
@@ -97,3 +81,12 @@ z_index = -1
 position = Vector2(1008.00006, 584)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("8_sky72")
+
+[node name="Label2" type="Label" parent="." unique_id=858081558]
+offset_left = 889.0
+offset_top = 143.0
+offset_right = 1099.0
+offset_bottom = 194.0
+theme_override_fonts/font = ExtResource("1_0fbet")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
