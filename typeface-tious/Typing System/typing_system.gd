@@ -2,12 +2,11 @@ class_name TypingSystem extends Node2D
 
 @onready var text_1: RichTextLabel = $Text
 @onready var text_2: RichTextLabel = $Text2
-@onready var audio_player: AudioStreamPlayer = $KeyboardNoise
 
 @onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2]
 @onready var timer: Timer = $Timer
 @onready var boss_meter: ProgressBar = $BossMeter
-#@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var keyboard_audio: KeyboardAudio = $KeyboardAudio
 
 var current_text_line : RichTextLabel
 
@@ -23,7 +22,6 @@ var array_of_text_options : Array[String] = [
 var listed_text : String = "This is a test sentence"
 var typed_text : String = ""
 
-signal day_finished
 
 
 func _ready() -> void:
@@ -31,6 +29,7 @@ func _ready() -> void:
 	current_text_line = array_of_text_lines[0]
 	check_against_text()
 	timer.start()
+	print(keyboard_audio)
 
 
 func _process(_delta: float) -> void:
@@ -91,8 +90,7 @@ func _input(event: InputEvent) -> void:
 			_:
 				add_key_to_string("?")
 	
-	audio_player.play_random_pitch()
-	
+	keyboard_audio.play()
 	SignalBus.key_pressed.emit(character)
 	check_against_text()
 
