@@ -47,7 +47,7 @@ func _process(_delta):
 	if StateNum == 4:
 		StateNum = 3
 	elif StateNum == 0:
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		Dead.emit()
 
 func _on_button_pressed():
 	Damage()

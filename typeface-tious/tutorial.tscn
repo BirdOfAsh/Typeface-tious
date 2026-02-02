@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b7ktl4y4dshbs"]
 
+[ext_resource type="Script" uid="uid://cug54gb3jr5di" path="res://tutorial.gd" id="1_dl7dh"]
 [ext_resource type="Texture2D" uid="uid://bs2y6likpspor" path="res://assets/light_damage/light_damage_mask.png" id="1_hu44a"]
 [ext_resource type="Texture2D" uid="uid://dxqewknmfbqen" path="res://assets/light_damage/light_tape_1.png" id="2_0cr88"]
 [ext_resource type="Texture2D" uid="uid://dgicnmuelfpa" path="res://assets/light_damage/light_tape_2.png" id="3_4t6hg"]
@@ -13,15 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://cp2y3tt48d2lb" path="res://assets/desk_elements/office_background.png" id="11_4hjyh"]
 [ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="12_vmw6g"]
 [ext_resource type="Texture2D" uid="uid://c3610ox4kecsk" path="res://assets/desk_elements/einstein_mousepad.png" id="13_4hjyh"]
+[ext_resource type="Texture2D" uid="uid://2t6vjndokay3" path="res://assets/clock_face.png" id="14_bsk3x"]
 
-[node name="Tutorial" type="Control" unique_id=1725003348]
-layout_mode = 3
-anchor_right = 1.202
-anchor_bottom = 1.2590001
-offset_right = -387.8401
-offset_bottom = -279.7201
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Tutorial" type="Node" unique_id=76057476]
+script = ExtResource("1_dl7dh")
 
 [node name="Tape" type="Sprite2D" parent="." unique_id=1584626419]
 z_index = -1
@@ -33,7 +29,6 @@ texture = ExtResource("5_bhfnd")
 texture = ExtResource("6_tvjhf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1675486597]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -103,18 +98,35 @@ position = Vector2(960.00006, 624)
 scale = Vector2(0.51, 0.51)
 texture = ExtResource("11_4hjyh")
 
-[node name="Label" type="Label" parent="." unique_id=2033745386]
-layout_mode = 0
-offset_left = 730.0
-offset_top = 117.0
-offset_right = 1448.0
-offset_bottom = 235.0
-theme_override_fonts/font = ExtResource("12_vmw6g")
-theme_override_font_sizes/font_size = 40
-text = "Press space to continue!"
-
 [node name="Mousepad" type="Sprite2D" parent="." unique_id=1073263364]
 z_index = -1
 position = Vector2(1008.00006, 584)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("13_4hjyh")
+
+[node name="ClockFace" type="Sprite2D" parent="." unique_id=1819518008]
+position = Vector2(1713.9999, 149)
+scale = Vector2(0.20304018, 0.20304017)
+texture = ExtResource("14_bsk3x")
+
+[node name="Hours" type="Line2D" parent="ClockFace" unique_id=1017764865]
+rotation = 4.712389
+points = PackedVector2Array(0, 0, 0, -401.945)
+width = 40.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Minutes" type="Line2D" parent="ClockFace" unique_id=615895390]
+points = PackedVector2Array(0, 0, 0, -672.763)
+width = 20.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="." unique_id=967790056]
+offset_left = 716.0
+offset_top = 828.0
+offset_right = 1316.0
+offset_bottom = 1018.0
+theme_override_fonts/font = ExtResource("12_vmw6g")
+theme_override_font_sizes/font_size = 50
+text = "Continue!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
