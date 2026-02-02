@@ -2,6 +2,7 @@ class_name TypingSystem extends Node2D
 
 @onready var text_1: RichTextLabel = $Text
 @onready var text_2: RichTextLabel = $Text2
+@onready var audio_player: AudioStreamPlayer = $KeyboardNoise
 
 @onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2]
 @onready var timer: Timer = $Timer
@@ -90,6 +91,7 @@ func _input(event: InputEvent) -> void:
 			_:
 				add_key_to_string("?")
 	
+	audio_player.play_random_pitch()
 	
 	SignalBus.key_pressed.emit(character)
 	check_against_text()

@@ -3,7 +3,6 @@ signal Dead
 
 @export var tapeeeeeeeee_scene : PackedScene
 
-
 const LIGHT_DAMAGE_MASK = preload("res://assets/light_damage/light_damage_mask.png")
 const MID_DAMAGE_MASK = preload("res://assets/mid_damage/mid_damage_mask.png")
 
@@ -95,6 +94,7 @@ func _on_face_box_input_event(_viewport: Node, event: InputEvent, shape_idx: int
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				$AudioStreamPlayer.play()
 				tape = tapeeeeeeeee_scene.instantiate()
 				get_tree().current_scene.add_child(tape)
 				
@@ -109,7 +109,7 @@ func _on_face_box_input_event(_viewport: Node, event: InputEvent, shape_idx: int
 func _on_facebox_area_entered(area: Area2D) -> void:
 	if area == tape:
 		tape_over_target = true 
-		print ("im taped up")
+		print ("i'm taped up")
 	
 func _on_facebox_area_exited(area: Area2D) -> void:
 	if area == tape:      # Check if it’s the tape exiting

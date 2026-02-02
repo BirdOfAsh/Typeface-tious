@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dxqewknmfbqen" path="res://assets/light_damage/light_tape_1.png" id="7_v6ufl"]
 [ext_resource type="Texture2D" uid="uid://dgicnmuelfpa" path="res://assets/light_damage/light_tape_2.png" id="8_bwqe8"]
 [ext_resource type="Texture2D" uid="uid://cw6ccyogtkeby" path="res://assets/mask_frame.png" id="11_bwqe8"]
+[ext_resource type="AudioStream" uid="uid://rh8ngpjahgoj" path="res://tape.mp3" id="11_bwqe8"]
 
 [node name="Face" type="Node2D" unique_id=34774057]
 script = ExtResource("1_68567")
@@ -71,6 +72,8 @@ z_index = -1
 position = Vector2(136, 624)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_bwqe8")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=104697770]
+stream = ExtResource("11_bwqe8")
 
 [connection signal="input_event" from="TapeBox" to="." method="_on_face_box_input_event"]
 [connection signal="mouse_shape_entered" from="TapeBox" to="." method="_on_face_box_mouse_shape_entered"]
