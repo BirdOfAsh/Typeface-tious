@@ -1,9 +1,8 @@
 class_name TypingSystem extends Node2D
 
 @onready var text_1: RichTextLabel = $Text
-@onready var text_2: RichTextLabel = $Text2
 
-@onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2]
+@onready var array_of_text_lines : Array[RichTextLabel] = [text_1]
 @onready var timer: Timer = $Timer
 @onready var boss_meter: ProgressBar = $BossMeter
 @onready var keyboard_audio: KeyboardAudio = $KeyboardAudio
@@ -13,9 +12,17 @@ var current_text_line : RichTextLabel
 var progress_increase_amount: float = 50
 
 var array_of_text_options : Array[String] = [
-	"var variable : String = 'This is a variable'",
-	"func _ready() -> void:",
-	"print('My coworkers drive me crazy')",
+	"class_name IHateMyJob extends Node2D",
+	"var v2 = Vector2(1,2)",
+	"return variable",
+	"good_day = true if boss_not_here else false",
+	"if my_bool != my_bool: pass",
+	"#Ignore this part, my boss doesn't know what they're doing",
+	"@onready var face: Area2D = box",
+	"if event is InputEventMouseButton and event.pressed:",
+	"var listed_text : String = 'This is a test sentence'",
+	"get_node('Sprite').set_opacity(0.5)",
+	"return fibonacci(n - 1) + fibonacci(n - 2)",
 	"func is_fired(tasks_completed : Array) -> bool:"
 	]
 
@@ -42,7 +49,6 @@ func _input(event: InputEvent) -> void:
 	
 	
 	var character : String = OS.get_keycode_string(event.get_key_label_with_modifiers())
-	
 	if event.is_released():
 		if character.contains("Shift+"):
 			SignalBus.key_released.emit(character.replace("Shift+", ""))
@@ -68,11 +74,17 @@ func _input(event: InputEvent) -> void:
 	elif character == "Minus":
 		add_key_to_string("-")
 	
+	elif character == "Comma":
+		add_key_to_string(",")
 	
 	elif character.contains("Shift+"):
 		character = character.replace("Shift+", "")
 		
 		match character:
+			"1":
+				add_key_to_string("!")
+			"2":
+				add_key_to_string("@")
 			"3":
 				add_key_to_string("#")
 			"9":
@@ -85,6 +97,8 @@ func _input(event: InputEvent) -> void:
 				add_key_to_string("_")
 			"Period":
 				add_key_to_string(">")
+			"Equal":
+				add_key_to_string("+")
 			character when character.length() == 1:
 				add_capital_letter_to_string(character)
 			_:

@@ -53,27 +53,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = 40.0
 offset_right = 432.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_fonts/normal_font = ExtResource("2_x4cdm")
-bbcode_enabled = true
-text = "var variable : String = \"This is a sentence\""
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Text2" type="RichTextLabel" parent="." unique_id=106554850]
-texture_filter = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = 72.0
-offset_right = 432.0
-offset_bottom = 108.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -84,14 +66,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1020799433]
-wait_time = 30.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="BossMeter" type="ProgressBar" parent="." unique_id=2052957952]
-offset_left = 256.34003
+offset_left = 216.34003
 offset_top = -152.0
-offset_right = 704.3401
+offset_right = 664.3401
 offset_bottom = -88.0
 theme_override_styles/background = SubResource("StyleBoxFlat_3unwk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sgnn0")
@@ -99,7 +81,7 @@ value = 50.0
 show_percentage = false
 
 [node name="BossHead" type="Sprite2D" parent="." unique_id=397867319]
-position = Vector2(172.17, -128)
+position = Vector2(132.17, -128)
 scale = Vector2(0.14, 0.14)
 texture = ExtResource("3_sgnn0")
 
@@ -117,7 +99,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_klwa8")
 show_percentage = false
 
 [node name="HANDDOWN" type="Sprite2D" parent="." unique_id=1191443336]
-position = Vector2(767.99994, -111.99999)
+position = Vector2(727.99994, -111.99999)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_3unwk")
 
