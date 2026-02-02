@@ -4,23 +4,36 @@ class_name TypingSystem extends Node2D
 @onready var text_2: RichTextLabel = $Text2
 
 @onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2]
+@onready var timer: Timer = $Timer
+@onready var boss_meter: ProgressBar = $BossMeter
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 var current_text_line : RichTextLabel
+
+var progress_increase_amount: float = 50
 
 var array_of_text_options : Array[String] = [
 	"var variable : String = 'This is a variable'",
 	"func _ready() -> void:",
-	"print('My coworkers drive me crazy')"
+	"print('My coworkers drive me crazy')",
+	"func is_fired(tasks_completed : Array) -> bool:"
 	]
 
 var listed_text : String = "This is a test sentence"
 var typed_text : String = ""
+
+signal day_finished
 
 
 func _ready() -> void:
 	reset_text_lines()
 	current_text_line = array_of_text_lines[0]
 	check_against_text()
+	timer.start()
+
+
+func _process(_delta: float) -> void:
+	boss_meter.value = 100 - (timer.time_left / timer.wait_time) * 100
 
 
 func _input(event: InputEvent) -> void:
@@ -151,6 +164,9 @@ func move_to_next_line() -> void:
 		reset_text_lines()
 		current_text_line = array_of_text_lines[0]
 		update_day_progress()
+		reset_timer()
+		increase_progress_bar()
+		
 	else:
 		current_text_line = array_of_text_lines[array_of_text_lines.find(current_text_line) + 1]
 	
@@ -170,3 +186,18 @@ func add_underline_to_next_letter() -> void:
 
 func update_day_progress() -> void:
 	SignalBus.line_finished.emit()
+
+
+func reset_timer() -> void:
+	timer.start()
+
+
+func increase_progress_bar() ->  void:
+	print("func called")
+	progress_bar.value = clamp(progress_bar.value + progress_increase_amount, 0 , 100)
+	if progress_bar.value >= 100:
+		day_finished.emit()
+
+
+func _on_timer_timeout() -> void:
+	SignalBus.call_da_boss.emit()

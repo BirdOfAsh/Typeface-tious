@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://rsmr70sfeptp"]
+
+[ext_resource type="Texture2D" uid="uid://bnsyji4hu4cex" path="res://assets/boss.png" id="1_2mdct"]
+[ext_resource type="Script" uid="uid://wcavq5sv0aaq" path="res://Boss/boss.gd" id="1_t20dt"]
+[ext_resource type="Texture2D" uid="uid://b1jhafce686bh" path="res://assets/pointed_textbox.png" id="3_4cnrr"]
+
+[sub_resource type="Animation" id="Animation_4cnrr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.7296948]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mrrbl"]
+resource_name = "YAP"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-2.7296948, -3.2271137869375153, -2.7296948]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0sshd"]
+_data = {
+&"RESET": SubResource("Animation_4cnrr"),
+&"YAP": SubResource("Animation_mrrbl")
+}
+
+[node name="Boss" type="Node2D" unique_id=1633381435]
+script = ExtResource("1_t20dt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1214794439]
+position = Vector2(-240, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_2mdct")
+
+[node name="StartingLocation" type="Marker2D" parent="." unique_id=812275544]
+position = Vector2(-240, 0)
+
+[node name="EndingLocation" type="Marker2D" parent="." unique_id=964015716]
+position = Vector2(320, 0)
+
+[node name="TEXT" type="Sprite2D" parent="." unique_id=1671114317]
+visible = false
+z_index = 3
+position = Vector2(520, -127.999985)
+rotation = -2.7296948
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_4cnrr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TEXT" unique_id=638886628]
+libraries/ = SubResource("AnimationLibrary_0sshd")
