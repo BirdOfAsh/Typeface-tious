@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://d36pxt05horsu"]
 
 [ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://jpseb0he06b4" path="res://assets/desk_elements/office_computer.png" id="2_ee4bf"]
+[ext_resource type="Texture2D" uid="uid://t1p3ictlgi1p" path="res://assets/desk_elements/office_desk.png" id="3_kbped"]
+[ext_resource type="Texture2D" uid="uid://cp2y3tt48d2lb" path="res://assets/desk_elements/office_background.png" id="4_fj5cn"]
 
-[node name="Control" type="Control" unique_id=437302982]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+bg_color = Color(0.3001788, 0.29354146, 0.30349743, 0.8901961)
+border_width_bottom = 40
+border_color = Color(0.29464048, 0.29464066, 0.2946406, 1)
+anti_aliasing = false
+
+[node name="Credits" type="Control" unique_id=437302982]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,10 +28,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -575.5
-offset_top = -89.5
-offset_right = 575.5
-offset_bottom = 89.5
+offset_left = -535.0
+offset_top = -328.0
+offset_right = 616.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_0fbet")
@@ -30,35 +39,36 @@ theme_override_font_sizes/font_size = 50
 text = "Phoenix: Programmer
 Aswath: programmer
 Stella: Artist
-Braiden:Audio
+Braiden: Audio
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=420927337]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -985.0
-offset_top = -570.0
-offset_right = 985.0
-offset_bottom = 570.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="OfficeComputer" type="Sprite2D" parent="." unique_id=1180610124]
+z_index = -1
+position = Vector2(991, 413)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ee4bf")
 
-[node name="Panel2" type="Panel" parent="." unique_id=1889648927]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -957.0
-offset_top = -340.5
-offset_right = 957.0
-offset_bottom = 340.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="DeskTable" type="Sprite2D" parent="." unique_id=1062871078]
+z_index = -2
+position = Vector2(960.9816, 560)
+scale = Vector2(0.50688076, 0.50688076)
+texture = ExtResource("3_kbped")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1113732347]
+z_index = -3
+position = Vector2(960.00006, 624)
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("4_fj5cn")
+
+[node name="Button" type="Button" parent="." unique_id=117458962]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 828.0
+offset_right = 1316.0
+offset_bottom = 1018.0
+theme_override_fonts/font = ExtResource("1_0fbet")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ee4bf")
+text = "Main menu"

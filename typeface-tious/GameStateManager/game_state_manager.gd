@@ -19,6 +19,10 @@ func switch_scenes(current_scene : Node) -> void:
 			current_scene.queue_free()
 			new_scene = main_game
 			loaded_scene = new_scene.instantiate()
+		"game_over":
+			current_scene.queue_free()
+			new_scene = main_game
+			loaded_scene = new_scene.instantiate()
 	
 	
 	add_child(loaded_scene)
