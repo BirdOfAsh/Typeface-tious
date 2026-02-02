@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4n0dwi3du4ik" path="res://Typing System/typing_system.gd" id="1_g6vd3"]
 [ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="2_x4cdm"]
 [ext_resource type="Texture2D" uid="uid://7oq6rlwaf4yk" path="res://assets/bossHEAD.png" id="3_sgnn0"]
+[ext_resource type="Texture2D" uid="uid://cdx5atn2nynqh" path="res://assets/boss_hand.png" id="4_3unwk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3unwk"]
 bg_color = Color(0, 0, 0, 0.7254902)
@@ -101,6 +102,7 @@ scale = Vector2(0.14, 0.14)
 texture = ExtResource("3_sgnn0")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=680942419]
+visible = false
 texture_filter = 1
 offset_left = 88.0
 offset_top = 272.0
@@ -111,5 +113,10 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/background = SubResource("StyleBoxFlat_4mea2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_klwa8")
 show_percentage = false
+
+[node name="HANDDOWN" type="Sprite2D" parent="." unique_id=1191443336]
+position = Vector2(767.99994, -111.99999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_3unwk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

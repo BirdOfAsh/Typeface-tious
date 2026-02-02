@@ -6,7 +6,7 @@ class_name TypingSystem extends Node2D
 @onready var array_of_text_lines : Array[RichTextLabel] = [text_1, text_2]
 @onready var timer: Timer = $Timer
 @onready var boss_meter: ProgressBar = $BossMeter
-@onready var progress_bar: ProgressBar = $ProgressBar
+#@onready var progress_bar: ProgressBar = $ProgressBar
 
 var current_text_line : RichTextLabel
 
@@ -165,7 +165,7 @@ func move_to_next_line() -> void:
 		current_text_line = array_of_text_lines[0]
 		update_day_progress()
 		reset_timer()
-		increase_progress_bar()
+		#increase_progress_bar()
 		
 	else:
 		current_text_line = array_of_text_lines[array_of_text_lines.find(current_text_line) + 1]
@@ -192,11 +192,11 @@ func reset_timer() -> void:
 	timer.start()
 
 
-func increase_progress_bar() ->  void:
-	print("func called")
-	progress_bar.value = clamp(progress_bar.value + progress_increase_amount, 0 , 100)
-	if progress_bar.value >= 100:
-		day_finished.emit()
+#func increase_progress_bar() ->  void:
+	#print("func called")
+	#progress_bar.value = clamp(progress_bar.value + progress_increase_amount, 0 , 100)
+	#if progress_bar.value >= 100:
+		#day_finished.emit()
 
 
 func _on_timer_timeout() -> void:
