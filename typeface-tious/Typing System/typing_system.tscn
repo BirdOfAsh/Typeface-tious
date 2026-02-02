@@ -2,6 +2,44 @@
 
 [ext_resource type="Script" uid="uid://b4n0dwi3du4ik" path="res://Typing System/typing_system.gd" id="1_g6vd3"]
 [ext_resource type="FontFile" uid="uid://ddfmd7x4iurp2" path="res://assets/Fonts/TRTTerminalMonoDemo-Regular.ttf" id="2_x4cdm"]
+[ext_resource type="Texture2D" uid="uid://7oq6rlwaf4yk" path="res://assets/bossHEAD.png" id="3_sgnn0"]
+[ext_resource type="Texture2D" uid="uid://cdx5atn2nynqh" path="res://assets/boss_hand.png" id="4_3unwk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3unwk"]
+bg_color = Color(0, 0, 0, 0.7254902)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgnn0"]
+bg_color = Color(0.90588236, 0.17254902, 0, 0.7254902)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mea2"]
+bg_color = Color(0, 0, 0, 0.7254902)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klwa8"]
+bg_color = Color(0, 0.8016221, 0, 0.7254902)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
 
 [node name="Typing System" type="Node2D" unique_id=577233112]
 script = ExtResource("1_g6vd3")
@@ -42,3 +80,43 @@ bbcode_enabled = true
 text = "var variable : String = \"This is a sentence\""
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1020799433]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="BossMeter" type="ProgressBar" parent="." unique_id=2052957952]
+offset_left = 256.34003
+offset_top = -152.0
+offset_right = 704.3401
+offset_bottom = -88.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3unwk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sgnn0")
+value = 50.0
+show_percentage = false
+
+[node name="BossHead" type="Sprite2D" parent="." unique_id=397867319]
+position = Vector2(172.17, -128)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("3_sgnn0")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=680942419]
+visible = false
+texture_filter = 1
+offset_left = 88.0
+offset_top = 272.0
+offset_right = 808.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("2_x4cdm")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_4mea2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_klwa8")
+show_percentage = false
+
+[node name="HANDDOWN" type="Sprite2D" parent="." unique_id=1191443336]
+position = Vector2(767.99994, -111.99999)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_3unwk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

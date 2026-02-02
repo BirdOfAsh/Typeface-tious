@@ -12,3 +12,4 @@ extends Node
 
 
 @warning_ignore("unused_signal") signal DIE
+@warning_ignore("unused_signal") signal call_da_boss()

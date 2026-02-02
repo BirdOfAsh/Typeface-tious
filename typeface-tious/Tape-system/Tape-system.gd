@@ -28,6 +28,7 @@ var tape_over_target = false
 
 func _ready() -> void:
 	SignalBus.missed_key.connect(Damage)
+	ChangeStates()
 
 
 func _process(_delta):
