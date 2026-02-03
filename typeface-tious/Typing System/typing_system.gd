@@ -77,6 +77,9 @@ func _input(event: InputEvent) -> void:
 	elif character == "Comma":
 		add_key_to_string(",")
 	
+	elif character == "Period":
+		add_key_to_string(".")
+	
 	elif character.contains("Shift+"):
 		character = character.replace("Shift+", "")
 		

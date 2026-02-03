@@ -2,7 +2,7 @@ class_name GameStateManager extends Node
 
 var main_game : PackedScene = preload("res://Game Scene/game.tscn")
 var retry : PackedScene = preload("res://game_over.tscn")
-var credits : PackedScene
+var credits : PackedScene = preload("res://control.tscn")
 var tutorial : PackedScene = preload("uid://b7ktl4y4dshbs")
 
 func _ready() -> void:
@@ -24,7 +24,7 @@ func switch_scenes(current_scene : Node, die : bool = false) -> void:
 				new_scene = retry
 				loaded_scene = new_scene.instantiate()
 			else:
-				new_scene = main_game
+				new_scene = credits
 				loaded_scene = new_scene.instantiate()
 		"GameOver":
 			current_scene.queue_free()

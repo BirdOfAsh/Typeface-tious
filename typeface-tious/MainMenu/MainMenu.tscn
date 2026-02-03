@@ -11,30 +11,6 @@
 [node name="MainMenu" type="Node" unique_id=574266894]
 script = ExtResource("1_otibh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=677222907]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -196.0
-offset_right = 250.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=197682568]
-layout_mode = 2
-size_flags_vertical = 3
-theme = SubResource("Theme_cruaa")
-text = "Start"
-
-[node name="Credit" type="Button" parent="VBoxContainer" unique_id=936112067]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Credits"
-
 [node name="OfficeComputer" type="Sprite2D" parent="." unique_id=1899072465]
 z_index = -1
 position = Vector2(936, 408)
@@ -58,4 +34,13 @@ position = Vector2(1008, 192)
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_3p42x")
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[node name="Start" type="Button" parent="." unique_id=197682568]
+offset_left = 710.0
+offset_top = 392.0
+offset_right = 1210.0
+offset_bottom = 496.0
+size_flags_vertical = 3
+theme = SubResource("Theme_cruaa")
+text = "Start"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

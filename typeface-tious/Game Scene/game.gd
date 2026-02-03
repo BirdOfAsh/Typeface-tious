@@ -1,5 +1,5 @@
 class_name Game extends Node
-@onready var clock: Node2D = $clock
+@onready var clock: Clock = $clock
 @onready var face: Node2D = $Face
 
 
@@ -12,6 +12,7 @@ func _ready() -> void:
 
 
 func day_won() -> void:
+	print('ye')
 	SignalBus.switch_scene.emit(self)
 
 func DIE():

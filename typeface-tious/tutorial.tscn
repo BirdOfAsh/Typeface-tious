@@ -29,20 +29,14 @@ texture = ExtResource("5_bhfnd")
 texture = ExtResource("6_tvjhf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1675486597]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.0
-offset_top = -438.0
-offset_right = 378.0
-offset_bottom = 64.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LightDamageMask" type="Sprite2D" parent="HBoxContainer" unique_id=1931388703]
-position = Vector2(342, 224)
+position = Vector2(941, 272.16)
 scale = Vector2(0.095637985, 0.095637985)
 texture = ExtResource("1_hu44a")
 
@@ -53,12 +47,12 @@ texture = ExtResource("2_0cr88")
 texture = ExtResource("3_4t6hg")
 
 [node name="BlackCardboardArrowTransparentPng" type="Sprite2D" parent="HBoxContainer" unique_id=187677178]
-position = Vector2(184.5, 227)
+position = Vector2(783.5, 275.16)
 scale = Vector2(0.12714285, 0.12714285)
 texture = ExtResource("4_7vrqn")
 
 [node name="TapeDispenser" type="Sprite2D" parent="HBoxContainer" unique_id=1407468178]
-position = Vector2(38, 224)
+position = Vector2(637, 272.16)
 scale = Vector2(0.13652481, 0.1365248)
 texture = ExtResource("5_bhfnd")
 
@@ -66,12 +60,12 @@ texture = ExtResource("5_bhfnd")
 texture = ExtResource("6_tvjhf")
 
 [node name="BlackCardboardArrowTransparentPng2" type="Sprite2D" parent="HBoxContainer" unique_id=1122210092]
-position = Vector2(507, 227)
+position = Vector2(1106, 275.16)
 scale = Vector2(0.127, 0.127)
 texture = ExtResource("4_7vrqn")
 
 [node name="FreshFace" type="Sprite2D" parent="HBoxContainer" unique_id=393107157]
-position = Vector2(656, 224)
+position = Vector2(1255, 272.16)
 scale = Vector2(0.096, 0.096)
 texture = ExtResource("7_0cr88")
 

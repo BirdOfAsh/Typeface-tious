@@ -16,7 +16,6 @@ func tween_in() -> void:
 	animation_player.play("YAPPER")
 	ausd.visible = true
 	await get_tree().create_timer(3).timeout
-	SignalBus.missed_key.emit()
 	tween_out()
 
 
